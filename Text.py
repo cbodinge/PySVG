@@ -99,7 +99,7 @@ class Font:
         # Currently only formatted for truetype fonts
         path = P.cwd().parent
         file = weight + '.ttf'
-        path = path / 'fonts' / family / file
+        path = path / 'text_lib\\fonts' / family / file
         font = TTFont(path)
         self.cmap = font['cmap'].getcmap(3, 1).cmap
         self.glyph_set = font.getGlyphSet()
