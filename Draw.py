@@ -2,29 +2,110 @@ from Paths import Path
 
 
 class Rect(Path):
-    def __init__(self):
-        super().__init__()
-        self.x = 0
-        self.y = 0
-        self.w = '100%'
-        self.h = '100%'
+    """
+    Repressents a rectangle SVG element. Subclass of `Paths.Path`
 
-        self.rx = None
-        self.ry = None
+    """
+    def __init__(self, x=0, y=0, w='100%', h='100%'):
+        """
+        :param x: x coordinate of the left, bottom coordinate of the rectangle.
+        :param y: y coordinate of the left, bottom coordinate of the rectangle.
+        :param w: Width of the rectangle.
+        :param h: Height of the rectangle.
+
+        All location/size parameters Can be pixels, percent, or any of the supported units
+        (see `Units Documentation <https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage>`_
+        for details on what units are supported). Default is pixel values.
+        """
+
+        super().__init__()
+        self._x = x
+        self._y = y
+        self._w = w
+        self._h = h
+
+        self._rx = None
+        self._ry = None
 
         self.fill_opacity = 0
+
+    @property
+    def x(self):
+        """
+        x coordinate of the left, bottom coordinate of the rectangle.
+        """
+        return self._x
+
+    @x.setter
+    def x(self, x):
+        self._x = x
+
+    @property
+    def y(self):
+        """
+        y coordinate of the left, bottom coordinate of the rectangle.
+        """
+        return self._y
+
+    @y.setter
+    def y(self, y):
+        self._y = y
+
+    @property
+    def w(self):
+        """
+        Width of the rectangle.
+        """
+        return self._w
+
+    @w.setter
+    def w(self, w):
+        self._x = w
+
+    @property
+    def h(self):
+        """
+        Height of the rectangle.
+        """
+        return self._h
+
+    @h.setter
+    def h(self, h):
+        self._h = h
+
+    @property
+    def rx(self):
+        """
+        points of edge rounding
+        """
+        return self._rx
+
+    @rx.setter
+    def rx(self, rx):
+        self._rx = rx
+
+    @property
+    def ry(self):
+        """
+        points of edge rounding
+        """
+        return self._y
+
+    @ry.setter
+    def ry(self, ry):
+        self._ry = ry
 
     def copy(self, item=None):
         if item is None:
             item = Rect()
 
-        item.x = self.x
-        item.y = self.y
-        item.w = self.w
-        item.h = self.h
+        item._x = self._x
+        item._y = self._y
+        item._w = self._w
+        item._h = self._h
 
-        item.rx = self.rx
-        item.ry = self.ry
+        item._rx = self._rx
+        item._ry = self._ry
 
         item = super().copy(item)
 
@@ -49,11 +130,54 @@ class Rect(Path):
 
 
 class Circle(Path):
-    def __init__(self):
+    def __init__(self, x=0, y=0, r=0):
+        """
+        :param x: x coordinate of the center of the circle.
+        :param y: y coordinate of the center of the circle.
+        :param r: radius of the circle.
+
+        All location/size parameters Can be pixels, percent, or any of the supported units
+        (see `Units Documentation <https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage>`_
+        for details on what units are supported). Default is pixel values.
+        """
         super().__init__()
-        self.x = 0
-        self.y = 0
-        self.r = 0
+
+        self._x = x
+        self._y = y
+        self._r = r
+
+    @property
+    def x(self):
+        """
+        x coordinate of the center of the circle.
+        """
+        return self._x
+
+    @x.setter
+    def x(self, x):
+        self._x = x
+
+    @property
+    def y(self):
+        """
+        y coordinate of the center of the circle.
+        """
+        return self._y
+
+    @y.setter
+    def y(self, y):
+        self._y = y
+
+    @property
+    def r(self):
+        """
+        radius of circle.
+        """
+        return self._r
+
+    @r.setter
+    def r(self, r):
+        self._r = r
 
     def copy(self, item=None):
         if item is None:
@@ -100,6 +224,36 @@ class Generic_Path(Path):
         points = ', '.join([' '.join([str(p) for p in point if str(p) != '']) for point in self.points])
 
         row = '<path d="%s"' % (points,)
+
+        row = row + ' ' + entries + '/>'
+
+        return row
+
+
+class Bezier(Path):
+    def __init__(self):
+        super().__init__()
+        self.points = []
+
+    def copy(self, item=None):
+        if item is None:
+            item = Generic_Path()
+
+        item.points = self.points
+
+        item = super().copy(item)
+
+        return item
+
+    def construct(self, **kwargs):
+        entries = super().construct()
+
+        points = self.points[:]
+        point1 = points.pop(0)
+
+        points = ', '.join([' '.join([str(p) for p in point if str(p) != '']) for point in points])
+
+        row = '<path d="M %s %s C %s V 1000"' % (str(point1[0]), str(point1[1]), points)
 
         row = row + ' ' + entries + '/>'
 

@@ -1,16 +1,40 @@
 class SVG:
-    def __init__(self, w: int, h: int):
+    def __init__(self, w: float, h: float):
+        """
+        Creates an SVG container for children to be added to.
+
+        :param w: width of the SVG in pixels
+        :param h: height of the SVG in pixels
+        """
         self._children = []
         self.size = (w, h)
         self.defs = []
 
-        self.top = True
+        self._top = True
 
         self.tab = 3 * ' '
 
         self.active = True
 
+    @property
+    def top(self):
+        """
+        True if this class instance is the top level SVG, False if it is embedded.
+        """
+        return self._top
+
+    @top.setter
+    def top(self, top: bool):
+        self._top = top
+
     def add_child(self, child, label: str = ''):
+        """
+        Append a child instance to this SVG
+
+        :param child: Usually a subclass of Paths.Path. Needs to have a ``construct()`` method
+
+        :param label: A label that is applied if set in the svg file to make troubleshooting/organization more efficient
+        """
         new_child = Child(child)
         new_child.label = label
         self._children.append(new_child)
@@ -26,6 +50,11 @@ class SVG:
         return defs
 
     def copy(self):
+        """
+        Creates a new SVG.SVG instance and copies all of its children recursively.
+
+        :return: ``SVG.SVG`` The instance handle for the copied object
+        """
         new = SVG(self.size[0], self.size[1])
 
         new.tab = self.tab
@@ -38,6 +67,13 @@ class SVG:
         return new
 
     def construct(self):
+        """
+        Recursively triggers ``construct()`` method in all children. An svg element string is generated for each
+        child and appended to the parent. This class returns a complete SVG string
+
+        :return: SVG in string form
+        :rtype: str
+        """
         if not self.active:
             return ''
 
@@ -49,9 +85,10 @@ class SVG:
 
         for child in self._children:
             if child.active:
-                child_svg = self.tab + child.construct().replace('\n', '\n' + self.tab)
+                c = child.child_ref
+                child_svg = self.tab + c.construct().replace('\n', '\n' + self.tab)
                 if child.label == '':
-                    row = [child.construct()]
+                    row = [child_svg]
                 else:
                     row = [comment % child.label,
                            child_svg]
@@ -62,16 +99,32 @@ class SVG:
 
         self._children = []
 
+        svg = [i for i in svg if i]
+
         return '\n'.join(svg)
 
 
 class Child:
     def __init__(self, child):
+        """
+        Holding Class for the children of ``SVG.SVG`` and ``SVG.Section``.
+
+        child is usually a ``Paths.Path`` object.
+
+        :param child:
+        """
         self.child_ref = child
         self.label = ''
 
     @property
-    def active(self):
+    def active(self) -> bool:
+        """
+        Ensures that all children can be evaluated for the active property.
+
+        :return: When this property exists for the child reference then returns the child reference value; otherwise returns False.
+
+        :rtype: bool
+        """
         try:
             return self.child_ref.active
         except AttributeError:
@@ -80,6 +133,13 @@ class Child:
 
 class Section:
     def __init__(self, x: float, y: float):
+        """
+            Represents a **<g>** element. x and y will perform a translation on every element in this section.
+
+            :param x: translates this section right/left
+            :param y: translates this section up/down
+        """
+
         self.x, self.y = x, y
 
         self._children = []
@@ -89,11 +149,23 @@ class Section:
         self.active = True
 
     def add_child(self, child, label: str = ''):
+        """
+        Append a child instance to this SVG
+
+        :param child: Usually a subclass of Paths.Path. Needs to have a ``construct()`` method
+
+        :param label: A label that is applied if set in the svg file to make troubleshooting/organization more efficient
+        """
         new_child = Child(child)
         new_child.label = label
         self._children.append(new_child)
 
     def copy(self, new=None):
+        """
+            Creates a new ``SVG.SVG`` instance and copies all of its children recursively.
+
+            :return: ``SVG.SVG`` The instance handle for the copied object
+        """
         if new is not None:
             new = Section(self.x, self.y)
 
@@ -106,6 +178,13 @@ class Section:
         return new
 
     def construct(self):
+        """
+            Recursively triggers ``construct()`` method in all children. An svg element string is generated for each
+            child and appended to the parent. This class returns a complete SVG **<g>** section.
+
+            :return: SVG in string form
+            :rtype: str
+        """
         if not self.active:
             return ''
 
@@ -114,7 +193,8 @@ class Section:
 
         for child in self._children:
             if child.active:
-                child_svg = self.tab + child.construct().replace('\n', '\n' + self.tab)
+                c = child.child_ref
+                child_svg = self.tab + c.construct().replace('\n', '\n' + self.tab)
                 if child.label == '':
                     row = [child_svg]
                 else:
@@ -132,6 +212,10 @@ class Section:
 
 class Embedded(Section):
     def __init__(self):
+        """
+        Convenience Class for creating SVGs that are embedded in other SVGs. This implementation is a subclass of the
+        ``SVG.Section`` with a native child that is type ``SVG.SVG``.
+        """
         super().__init__(0, 0)
         self._svg = SVG(0, 0)
 
@@ -139,6 +223,7 @@ class Embedded(Section):
 
     @property
     def w(self):
+        """Width of the embedded SVG in pixels"""
         return self._svg.size[0]
 
     @w.setter
@@ -147,6 +232,7 @@ class Embedded(Section):
 
     @property
     def h(self):
+        """Height of the embedded SVG in pixels"""
         return self._svg.size[1]
 
     @h.setter
@@ -157,6 +243,13 @@ class Embedded(Section):
         self._svg.add_child(child, label)
 
     def construct(self):
+        """
+            Recursively triggers ``construct()`` method in all children. An svg element string is generated for each
+            child and appended to the *native* ``SVG.SVG`` *child object*.
+
+            :return: SVG in string form
+            :rtype: str
+        """
         self.add_child(self._svg)
         super().construct()
 
@@ -170,6 +263,3 @@ class Embedded(Section):
         new.h = self.h
 
         return new
-
-
-
