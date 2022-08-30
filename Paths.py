@@ -15,7 +15,7 @@ class Path:
     @property
     def fill(self):
         """
-        r,g,b values for the fill of this element
+        Get or Set a tuple of r,g,b values for the fill of this element.
         """
         if self._fill is not None:
             color = self._fill
@@ -67,7 +67,8 @@ class Path:
     @property
     def stroke(self):
         """
-        r,g,b values for the stroke/outline of this element
+        Get or Set a tuple of r,g,b values for the stroke/outline of this element.
+        :
         """
         if self._stroke is not None:
             color = self._stroke
@@ -160,6 +161,13 @@ class Path:
         return item
 
     def construct(self, outer_pars: dict = None):
+        """
+        Constructs the SVG string representation of this element. All parameters that are None are ignored.
+
+        :param outer_pars: parameters to pass to superclass calls of this function
+        :return: the SVG string for this element. If this element isn't active then this returns an empty string.
+        :rtype: str
+        """
 
         if not self.active:
             return ''

@@ -204,9 +204,33 @@ class Circle(Path):
 
 
 class Generic_Path(Path):
+    """
+    Repressents a generic version of the path element of an SVG.
+
+    Path elements are used to draw curves and shapes
+    freely based on defined curve behavior and coordinates on which to draw. Subclass of `Paths.Path`.
+    """
     def __init__(self):
         super().__init__()
-        self.points = []
+        self._points = []
+
+    @property
+    def points(self):
+        """
+            List of points whose entries are typically of the form [`string`, `float`, `float`]
+
+            List Entry[0]: String, letter that describes the behavior of the following points
+            List Entry[1]: Typically the x value for the next drawn point
+            List Entry[2]: Typically the y value for the next drawn point
+
+            See `Paths Documentation <https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage>`_ for how
+            to control the path form.
+        """
+        return self._points
+
+    @points.setter
+    def points(self, points: list[str, float, float]):
+        self._points = points
 
     def copy(self, item=None):
         if item is None:
