@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.buildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_circle.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_path.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_rectangle.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/environment.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/index.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_elements.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_gradient.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_paths.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_svg.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/usage.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_circle.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_path.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_rectangle.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_elements.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_gradient.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_paths.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_svg.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_sources/usage.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/_sphinx_javascript_frameworks_compat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/alabaster.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/basic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/doctools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/documentation_options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/functions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/jquery-3.6.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/language_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/pygments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/searchtools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/underscore-1.13.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/_static/underscore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/elements_circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/elements_path.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/elements_rectangle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/genindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/objects.inv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/searchindex.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/svg_elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/svg_gradient.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/svg_paths.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/svg_svg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/html/usage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/make.bat" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Carter Bodinger &lt;38869202+cbodinge@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DlGR0Kgc7NNUHyPKyRA8KoD12l" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/CusPy/PySVG/docs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;restructured.text.topic&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\CusPy\PySVG\docs" />
+      <recent name="C:\CusPy\PySVG\docs\_static" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Text" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PySVG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Text" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Text/Text.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="" />
+      <created>1661266245815</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661266245815</updated>
+      <workItem from="1661370829328" duration="42000" />
+      <workItem from="1661375031130" duration="2696000" />
+      <workItem from="1661456140819" duration="9708000" />
+      <workItem from="1661531635393" duration="47000" />
+      <workItem from="1661551470283" duration="740000" />
+      <workItem from="1661553163144" duration="29000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <created>1661285169121</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661285169121</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Moved fonts into text_lib. Updated Font class in Text.py to reflect directory change">
+      <created>1661285375254</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661285375254</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Circle, Rect, and Path to Documentation.">
+      <created>1661817094037</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661817094037</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updating Details of elements">
+      <created>1661827804253</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661827804254</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updating Details of index.rst">
+      <created>1661977346938</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661977346938</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Moved fonts into text_lib. Updated Font class in Text.py to reflect directory change" />
+    <MESSAGE value="Added Circle, Rect, and Path to Documentation." />
+    <MESSAGE value="Updating Details of elements" />
+    <MESSAGE value="Updating Details of index.rst" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating Details of index.rst" />
+  </component>
+</project>

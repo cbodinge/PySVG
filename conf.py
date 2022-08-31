@@ -8,7 +8,7 @@
 
 import sys
 
-sys.path.append('C:\\CusPy\\PySVG')
+sys.path.append('C:\\CusPy\\PySVG_copy')
 
 project = 'PySVG'
 copyright = '2022, Carter Bodinger'
@@ -20,7 +20,8 @@ release = '0.1'
 
 extensions = ['sphinx.ext.duration',
               'sphinx.ext.doctest',
-              'sphinx.ext.autodoc', ]
+              'sphinx.ext.autodoc',
+              'sphinx.ext.githubpages']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
