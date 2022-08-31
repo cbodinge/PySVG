@@ -15,5 +15,6 @@ Navigation
     svg_svg
     svg_paths
     svg_elements
+    svg_gradient
     :maxdepth: 4
 ..
