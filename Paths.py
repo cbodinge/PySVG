@@ -35,7 +35,7 @@ class Path:
 
     @property
     def gradient(self):
-        """Name of the gradient to define the fill with. Gradient will reference a ``Gradient.Linear`` object.
+        """Get or Set name of the gradient to define the fill with. Gradient will reference a ``Gradient.Linear`` object.
         ``Gradient.Linear`` objects need to be added to the defs field of the ``SVG.SVG`` object."""
         if self._gradient is not None:
             name = self._gradient[5:-1]
@@ -50,7 +50,7 @@ class Path:
     @property
     def fill_opacity(self):
         """
-        Number Value from 0 to 1 that controls the opacity of the fill.
+        Get or Set Number Value from 0 to 1 that controls the opacity of the fill.
         0 -> Totally Transparent
         1 -> Totally Opaque
         """
@@ -89,7 +89,7 @@ class Path:
     @property
     def stroke_width(self):
         """
-        Width of the stroke or outline of this element. Numeric Values.
+        Get or Set width of the stroke/outline of this element. Numeric Values.
         """
         return self._stroke_width
 
@@ -104,7 +104,7 @@ class Path:
     @property
     def stroke_opacity(self):
         """
-        Number Value from 0 to 1 that controls the opacity of the stroke/outline.
+        Get or Set Number Value from 0 to 1 that controls the opacity of the stroke/outline.
         0 -> Totally Transparent
         1 -> Totally Opaque
         """
@@ -120,8 +120,8 @@ class Path:
 
     @property
     def stroke_dasharray(self):
-        """Iterable of integers that defines the pattern of dashes to use. Each element in the iterable defines the
-        width in pixels for the next dash element in the pattern. """
+        """Get or Set Iterable of integers that defines the pattern of dashes to use. Each element in the iterable
+        defines the width in pixels for the next dash element in the pattern."""
         da = self._stroke_dasharray.split(' ')
         if da is not None:
             da = [int(i) for i in da]
