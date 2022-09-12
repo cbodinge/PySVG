@@ -1,5 +1,4 @@
-from .Paths import Path
-
+from ..Paths import Path
 
 
 class Text(Path):
@@ -89,6 +88,3 @@ class Text(Path):
         row = '<text %s>%s</text>' % (entries, str(self.text))
 
         return row
-
-
-
