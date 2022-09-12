@@ -1,4 +1,4 @@
-from Paths import Path
+from .Paths import Path
 
 
 class Rect(Path):

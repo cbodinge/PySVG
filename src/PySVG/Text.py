@@ -1,4 +1,4 @@
-from Paths import Path
+from .Paths import Path
 from pathlib import Path as P
 from fontTools.ttLib import TTFont
 

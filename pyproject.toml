@@ -1,0 +1,19 @@
+[project]
+name = "PySVG"
+version = "0.0.4"
+authors = [
+  { name="Carter Bodinger", email="carterallenbodinger@yahoo.com" },
+]
+description = "Python interface for generating SVGs."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU GENERAL PUBLIC LICENSE",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/cbodinge/PySVG"
+"Bug Tracker" = "https://github.com/cbodinge/PySVG/issues"
