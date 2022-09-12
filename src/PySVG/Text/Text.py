@@ -1,6 +1,5 @@
 from .Paths import Path
-from pathlib import Path as P
-from fontTools.ttLib import TTFont
+
 
 
 class Text(Path):
@@ -92,33 +91,4 @@ class Text(Path):
         return row
 
 
-class Font:
-    def __init__(self, family: str, size: int, weight: str):
-        # Searches Working Directory for font path
-        # path is parent/fonts/family/weight.ttf
-        # Currently only formatted for truetype fonts
-        path = P.cwd().parent
-        file = weight + '.ttf'
-        path = path / 'text_lib\\fonts' / family / file
-        font = TTFont(path)
-        self.cmap = font['cmap'].getcmap(3, 1).cmap
-        self.glyph_set = font.getGlyphSet()
-        self.units_per_em = font['head'].unitsPerEm
-        self.size = size
-        self.family = family
-        self.weight = weight
 
-    def copy(self):
-        font = Font(self.family, self.size, self.weight)
-
-        return font
-
-    def getTextWidth(self, text):
-        total = 0
-        for character in text:
-            if ord(character) in self.cmap and self.cmap[ord(character)] in self.glyph_set:
-                total += self.glyph_set[self.cmap[ord(character)]].width
-            else:
-                total += self.glyph_set['.notdef'].width
-        total = total * float(self.size) / self.units_per_em
-        return total
