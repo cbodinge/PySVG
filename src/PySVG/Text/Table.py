@@ -1,4 +1,4 @@
-from Text import Text
+from .Text import Text
 from ..Draw import Rect
 from ..SVG import SVG, Section
 
@@ -102,6 +102,16 @@ class Table(SVG):
     def construct(self):
         self._set_rows()
         self._set_cols()
+
+        for row in self.rows:
+            self.add_child(row)
+
+        for col in self.cols:
+            self.add_child(col)
+
+        for box in self.boxes.values():
+            self.add_child(box)
+
         svg = super().construct()
 
         return svg
@@ -179,19 +189,12 @@ class TextBox(Section):
         self.rect.w = self.col.w
         self.rect.h = self.row.h
 
+        self.x = self.col.x
+        self.y = self.row.y
+
     def construct(self):
+        self._set()
         self.add_child(self.rect)
         self.add_child(self.text)
 
         return super().construct()
-
-
-t = Text()
-import Font
-
-t.font = Font.Font('JetBrains Mono', 14, '800')
-
-table = Table(t)
-table.add_item(5, 5, 'hello')
-svg = table.construct()
-a=1

@@ -60,7 +60,7 @@ class Rect(Path):
 
     @w.setter
     def w(self, w):
-        self._x = w
+        self._w = w
 
     @property
     def h(self):
@@ -89,7 +89,7 @@ class Rect(Path):
         """
         points of edge rounding
         """
-        return self._y
+        return self._ry
 
     @ry.setter
     def ry(self, ry):

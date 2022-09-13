@@ -45,7 +45,8 @@ class Path:
 
     @gradient.setter
     def gradient(self, name: str):
-        self._gradient = 'url(#%s)' % name
+        if name is not None:
+            self._gradient = 'url(#%s)' % name
 
     @property
     def fill_opacity(self):
@@ -122,15 +123,21 @@ class Path:
     def stroke_dasharray(self):
         """Get or Set Iterable of integers that defines the pattern of dashes to use. Each element in the iterable
         defines the width in pixels for the next dash element in the pattern."""
-        da = self._stroke_dasharray.split(' ')
+        da = self._stroke_dasharray
+
         if da is not None:
-            da = [int(i) for i in da]
+            da = da.split(' ')
+            if da is not None:
+                da = [int(i) for i in da]
 
         return da
 
     @stroke_dasharray.setter
     def stroke_dasharray(self, dasharray: list[int]):
-        self._stroke_dasharray = ' '.join([str(i) for i in dasharray])
+        if dasharray:
+            self._stroke_dasharray = ' '.join([str(i) for i in dasharray])
+        else:
+            self._stroke_dasharray = None
 
     def copy(self, item=None):
         """

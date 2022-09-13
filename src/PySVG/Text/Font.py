@@ -17,7 +17,7 @@ class Font:
         # Searches Working Directory for font path
         # path is parent/fonts/family/weight.ttf
         # Currently only formatted for truetype fonts
-        path = P.cwd()
+        path = P(__file__).parent
         file = weight + '.ttf'
         path = path / 'fonts' / family / file
         font = TTFont(path)
