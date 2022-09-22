@@ -49,6 +49,10 @@ class Table(SVG):
 
         self.boxes[row, col] = new_box
 
+    def set_sizes(self):
+        self._set_rows()
+        self._set_cols()
+
     def _set_cols(self):
         w, h = self.size
         cw = 0
@@ -65,7 +69,7 @@ class Table(SVG):
         if leftovers > 0 and len(dflt) > 0:
             dw = leftovers / (len(dflt))
         for col in dflt:
-            col.set_w(dw)
+            col.w = dw
             col.lock = False
 
         x = 0
@@ -85,10 +89,15 @@ class Table(SVG):
             else:
                 dflt.append(row)
 
+        if not dflt:
+            h = sum([row.h for row in self.rows])
+            self.size = (w, h)
+
         leftovers = h - ch
         dh = 0
         if leftovers > 0 and len(dflt) > 0:
             dh = leftovers / len(dflt)
+
         for row in dflt:
             row.set_h(dh)
             row.lock = False
@@ -100,14 +109,13 @@ class Table(SVG):
             y = y + row.h
 
     def construct(self):
-        self._set_rows()
-        self._set_cols()
-
-        for row in self.rows:
-            self.add_child(row)
+        self.set_sizes()
 
         for col in self.cols:
             self.add_child(col)
+
+        for row in self.rows:
+            self.add_child(row)
 
         for box in self.boxes.values():
             self.add_child(box)
