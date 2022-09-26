@@ -1,6 +1,6 @@
 [project]
-name = "PySVG"
-version = "0.0.5"
+name = "PSVG"
+version = "0.0.1"
 authors = [
   { name="Carter Bodinger", email="carterallenbodinger@yahoo.com" },
 ]
