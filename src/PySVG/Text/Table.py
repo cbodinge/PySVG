@@ -181,7 +181,7 @@ class TextBox(Section):
         w = self.col.w
         self.text.x = self.margin * w
         self.text.anchor = 'start'
-        self.alignment()
+        self.middle()
 
     def right(self):
         w = self.col.w
@@ -195,7 +195,7 @@ class TextBox(Section):
         self.text.baseline = 'central'
 
     def _set(self):
-        self.center()
+        self.alignment()
         self.rect.w = self.col.w
         self.rect.h = self.row.h
 

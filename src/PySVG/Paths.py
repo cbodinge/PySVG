@@ -35,7 +35,7 @@ class Path:
 
     @property
     def gradient(self):
-        """Get or Set name of the gradient to define the fill with. Gradient will reference a ``Gradient.Linear`` object.
+        """Get or Set name of the gradient to define the fill with. Gradient references a ``Gradient.Linear`` object.
         ``Gradient.Linear`` objects need to be added to the defs field of the ``SVG.SVG`` object."""
         if self._gradient is not None:
             name = self._gradient[5:-1]

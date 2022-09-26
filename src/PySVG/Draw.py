@@ -254,6 +254,55 @@ class Generic_Path(Path):
         return row
 
 
+class Polygon(Path):
+    """
+    Repressents a polygon.
+
+    Path elements are used to draw curves and shapes
+    freely based coordinates on which to draw. Subclass of `Paths.Path`.
+    """
+    def __init__(self):
+        super().__init__()
+        self._points = []
+
+    @property
+    def points(self):
+        """
+            List of points whose entries are of the form [`float`, `float`]
+
+            List Entry[0]: x value for the next drawn point
+            List Entry[1]: y value for the next drawn point
+
+            See `Polygon Documentation <https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polygon>`_ for more information
+        """
+        return self._points
+
+    @points.setter
+    def points(self, points: list[float, float]):
+        self._points = points
+
+    def copy(self, item=None):
+        if item is None:
+            item = Generic_Path()
+
+        item.points = self.points
+
+        item = super().copy(item)
+
+        return item
+
+    def construct(self, **kwargs):
+        entries = super().construct()
+
+        points = ', '.join([' '.join([str(p) for p in point if str(p) != '']) for point in self.points])
+
+        row = '<polygon points="%s"' % (points,)
+
+        row = row + ' ' + entries + '/>'
+
+        return row
+
+
 class Bezier(Path):
     def __init__(self):
         super().__init__()

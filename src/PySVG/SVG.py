@@ -218,8 +218,8 @@ class Embedded(Section):
         """
         super().__init__(0, 0)
         self._svg = SVG(0, 0)
-
         self._svg.top = False
+        self.w, self.h = 0, 0
 
     @property
     def w(self):
@@ -250,8 +250,9 @@ class Embedded(Section):
             :return: SVG in string form
             :rtype: str
         """
-        self.add_child(self._svg)
-        super().construct()
+        super().add_child(self._svg)
+
+        return super().construct()
 
     def copy(self, **kwargs):
         new = Embedded()

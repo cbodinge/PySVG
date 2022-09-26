@@ -1,5 +1,7 @@
 from pathlib import Path as P
 from fontTools.ttLib import TTFont
+import inspect
+import os
 
 
 class Font:
@@ -17,7 +19,7 @@ class Font:
         # Searches Working Directory for font path
         # path is parent/fonts/family/weight.ttf
         # Currently only formatted for truetype fonts
-        path = P(__file__).parent
+        path = P(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
         file = weight + '.ttf'
         path = path / 'fonts' / family / file
         font = TTFont(path)
