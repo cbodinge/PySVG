@@ -88,3 +88,42 @@ class Text(Path):
         row = '<text %s>%s</text>' % (entries, str(self.text))
 
         return row
+
+
+class EmbeddedText(Text):
+    def copy(self, item=None):
+        if item is None:
+            item = EmbeddedText()
+
+        return super().copy(item)
+
+    def construct(self, **kwargs):
+        if self.font is None:
+            self.active = False
+
+        if not self.active:
+            return ''
+
+        if self.angle != 0:
+            transform = "translate(%s, %s) rotate(%s)" % (self.x, self.y, self.angle)
+            x = 0
+            y = 0
+        else:
+            transform = None
+            x = self.x
+            y = self.y
+
+        parameters = {'x': x,
+                      'y': y,
+                      'font-family': f'{self.font.family}-{self.font.weight}',
+                      'font-size': self.font.size,
+                      'dominant-baseline': self._baseline,
+                      'text-anchor': self._anchor,
+                      'xml:space': 'preserve',
+                      'transform': transform}
+
+        entries = super(Text, self).construct(parameters)
+
+        row = '<text %s>%s</text>' % (entries, str(self.text))
+
+        return row

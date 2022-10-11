@@ -111,6 +111,17 @@ class Rect(Path):
 
         return item
 
+    def inherit(self, item):
+        self._x = item.x
+        self._y = item.y
+        self._w = item.w
+        self._h = item.h
+
+        self._rx = item.rx
+        self._ry = item.ry
+
+        super().inherit(item)
+
     def construct(self, **kwargs):
         if not self.active:
             return ''

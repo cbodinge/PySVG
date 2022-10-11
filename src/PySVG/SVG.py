@@ -47,7 +47,7 @@ class SVG:
                 defs.append(2 * self.tab + d.construct())
             defs.append(self.tab + '</defs>')
 
-        return defs
+            return '\n'.join(defs)
 
     def copy(self):
         """
@@ -238,6 +238,14 @@ class Embedded(Section):
     @h.setter
     def h(self, h):
         self._svg.size = (self.w, h)
+
+    @property
+    def defs(self):
+        return self._svg.defs
+
+    @defs.setter
+    def defs(self, defs):
+        self._svg.defs = defs
 
     def add_child(self, child, label: str = ''):
         self._svg.add_child(child, label)

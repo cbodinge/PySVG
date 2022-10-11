@@ -1,5 +1,6 @@
 from pathlib import Path as P
 from fontTools.ttLib import TTFont
+from base64 import b64encode
 import inspect
 import os
 
@@ -23,6 +24,7 @@ class Font:
         file = weight + '.ttf'
         path = path / 'fonts' / family / file
         font = TTFont(path)
+        self.path = path
         self.cmap = font['cmap'].getcmap(3, 1).cmap
         self.glyph_set = font.getGlyphSet()
         self.units_per_em = font['head'].unitsPerEm
@@ -58,3 +60,10 @@ class Font:
         total = total * float(self.size) / self.units_per_em
 
         return total
+
+    def getBase64(self):
+        with open(self.path, 'rb') as file:
+            font = file.read()
+
+        b64 = b64encode(font)
+        return b64.decode('utf8')

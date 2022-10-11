@@ -167,6 +167,26 @@ class Path:
 
         return item
 
+    def inherit(self, item):
+        """
+        Copies the display attributes of item to this instance.
+
+        This method can be applied recurssively to each subclass level to get an entire copy. It can also be applied
+        through a particular subclass to only change the parameters defined at that level
+
+        :param item: an object of this class or one of its subclasses.
+        """
+
+        self.fill = item.fill
+        self.fill_opacity = item.fill_opacity
+
+        self.stroke = item.stroke
+        self.stroke_width = item.stroke_width
+        self.stroke_opacity = item.stroke_opacity
+        self.stroke_dasharray = item.stroke_dasharray
+
+        self.gradient = item.gradient
+
     def construct(self, outer_pars: dict = None):
         """
         Constructs the SVG string representation of this element. All parameters that are None are ignored.
