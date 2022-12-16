@@ -1,8 +1,14 @@
+from pathlib import Path
+
 class Image:
     def __init__(self, x: float, y: float, path: str):
         self.x = x
         self.y = y
-        self.path = path
+        self.height = 0
+        self.width = 0
+        self.path = Path(path)
+
+        self.active = True
 
     def construct(self):
         """
@@ -12,9 +18,9 @@ class Image:
         :rtype: str
         """
 
-        parameters = {'x': self.x,
-                      'y': self.y,
-                      'href': self.path}
+        parameters = {'href': self.path,
+                      'x': self.x,
+                      'y': self.y}
 
         entries = []
 
