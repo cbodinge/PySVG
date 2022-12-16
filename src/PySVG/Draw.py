@@ -192,7 +192,7 @@ class Circle(Path):
 
     def copy(self, item=None):
         if item is None:
-            item = Rect()
+            item = Circle()
 
         item.x = self.x
         item.y = self.y
@@ -294,7 +294,7 @@ class Polygon(Path):
 
     def copy(self, item=None):
         if item is None:
-            item = Generic_Path()
+            item = Polygon()
 
         item.points = self.points
 
@@ -321,7 +321,7 @@ class Bezier(Path):
 
     def copy(self, item=None):
         if item is None:
-            item = Generic_Path()
+            item = Bezier()
 
         item.points = self.points
 
