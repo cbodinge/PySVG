@@ -1,8 +1,8 @@
 [project]
 name = "PSVG"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
-  { name="Carter Bodinger", email="carterallenbodinger@yahoo.com" },
+    { name = "Carter Bodinger", email = "carterallenbodinger@yahoo.com" },
 ]
 description = "Python interface for generating SVGs."
 readme = "README.md"
