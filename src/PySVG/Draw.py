@@ -1,4 +1,5 @@
 from .Paths import Path
+from math import cos, sin, pi
 
 
 class Rect(Path):
@@ -6,6 +7,7 @@ class Rect(Path):
     Repressents a rectangle SVG element. Subclass of `Paths.Path`
 
     """
+
     def __init__(self, x=0, y=0, w='100%', h='100%'):
         """
         :param x: x coordinate of the left, bottom coordinate of the rectangle.
@@ -221,6 +223,7 @@ class Generic_Path(Path):
     Path elements are used to draw curves and shapes
     freely based on defined curve behavior and coordinates on which to draw. Subclass of `Paths.Path`.
     """
+
     def __init__(self):
         super().__init__()
         self._points = []
@@ -272,6 +275,7 @@ class Polygon(Path):
     Path elements are used to draw curves and shapes
     freely based coordinates on which to draw. Subclass of `Paths.Path`.
     """
+
     def __init__(self):
         super().__init__()
         self._points = []
@@ -340,5 +344,61 @@ class Bezier(Path):
         row = '<path d="M %s %s C %s V 1000"' % (str(point1[0]), str(point1[1]), points)
 
         row = row + ' ' + entries + '/>'
+
+        return row
+
+
+class PartialCircle(Path):
+    def __init__(self, x=0, y=0, r=0, theta=0):
+        """
+        :param x: x coordinate of the center of the circle.
+        :param y: y coordinate of the center of the circle.
+        :param r: radius of the circle.
+        :param theta: angle of the arc in radians.
+
+
+        location/size parameters should be pixels.
+        """
+        super().__init__()
+
+        self.x = x
+        self.y = y
+        self.r = r
+        self.theta = theta
+
+        self.angle = 0
+
+    def copy(self, item=None):
+        if item is None:
+            item = PartialCircle()
+
+        item.x = self.x
+        item.y = self.y
+        item.r = self.r
+        item.theta = self.theta
+        item.angle = self.angle
+
+        item = super().copy(item)
+
+        return item
+
+    def construct(self, **kwargs):
+        x1 = self.x
+        y1 = self.y - self.r
+        x2 = x1 + self.r * sin(pi - self.theta)
+        y2 = self.y + self.r * cos(pi - self.theta)
+
+        if (x2 - x1) < 0:
+            flag = 1
+        else:
+            flag = 0
+
+        d = f'M {x1} {y1} A {self.r} {self.r} 0 {flag} 1 {x2} {y2} L {self.x} {self.y} Z'
+        parameters = {'d': d,
+                      'transform': f'rotate({self.angle}, {self.x}, {self.y})'}
+
+        entries = super().construct(parameters)
+
+        row = '<path %s />' % (entries,)
 
         return row
