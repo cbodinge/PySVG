@@ -1,3 +1,6 @@
+from math import sin, cos, pi
+
+
 class SVG:
     def __init__(self, w: float, h: float):
         """
@@ -26,6 +29,20 @@ class SVG:
     @top.setter
     def top(self, top: bool):
         self._top = top
+
+    def insert_child(self, child, index: int = 0, label: str = ''):
+        """
+        Append a child instance to this SVG
+
+        :param child: Usually a subclass of Paths.Path. Needs to have a ``construct()`` method
+
+        :param index: position to insert child in list of children
+
+        :param label: A label that is applied if set in the svg file to make troubleshooting/organization more efficient
+        """
+        new_child = Child(child)
+        new_child.label = label
+        self._children.insert(index, new_child)
 
     def add_child(self, child, label: str = ''):
         """
@@ -141,10 +158,15 @@ class Section:
         """
 
         self.x, self.y = x, y
+        self.xc, self.yc = 0, 0
 
         self._children = []
 
         self.tab = 3 * ' '
+
+        self.angle = 0
+        self.xscale = 1
+        self.yscale = 1
 
         self.active = True
 
@@ -159,6 +181,20 @@ class Section:
         new_child = Child(child)
         new_child.label = label
         self._children.append(new_child)
+
+    def insert_child(self, child, index: int = 0, label: str = ''):
+        """
+        Append a child instance to this SVG
+
+        :param child: Usually a subclass of Paths.Path. Needs to have a ``construct()`` method
+
+        :param index: position to insert child in list of children
+
+        :param label: A label that is applied if set in the svg file to make troubleshooting/organization more efficient
+        """
+        new_child = Child(child)
+        new_child.label = label
+        self._children.insert(index, new_child)
 
     def copy(self, new=None):
         """
@@ -177,6 +213,21 @@ class Section:
 
         return new
 
+    def tranform(self):
+        x, y = self.x, self.y
+
+        xc, yc = self.xc, self.yc
+
+        xs, ys = self.xscale, self.yscale
+
+        c = cos(pi * self.angle / 180)
+        s = sin(pi * self.angle / 180)
+
+        xn = x + xc * (1 + xs * s - xs * c)
+        yn = y + yc * (1 - ys * s - ys * c)
+
+        return [f'<g transform="matrix({xs * c},{ys * s},{xs * -s},{ys * c},{xn},{yn})">']
+
     def construct(self):
         """
             Recursively triggers ``construct()`` method in all children. An svg element string is generated for each
@@ -188,8 +239,9 @@ class Section:
         if not self.active:
             return ''
 
+        svg = self.tranform()
+
         comment = '\n<!--%s-->\n'
-        svg = ['<g transform="matrix(1,0,0,1,%s,%s)"> ' % (self.x, self.y)]
 
         for child in self._children:
             if child.active:
@@ -249,6 +301,9 @@ class Embedded(Section):
 
     def add_child(self, child, label: str = ''):
         self._svg.add_child(child, label)
+
+    def insert_child(self, child, index: int = 0, label: str = ''):
+        self._svg.insert_child(child, index, label)
 
     def construct(self):
         """

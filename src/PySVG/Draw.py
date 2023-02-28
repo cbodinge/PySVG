@@ -349,7 +349,7 @@ class Bezier(Path):
 
 
 class PartialCircle(Path):
-    def __init__(self, x=0, y=0, r=0, theta=0):
+    def __init__(self, x=0.0, y=0.0, r=0.0, theta=0.0):
         """
         :param x: x coordinate of the center of the circle.
         :param y: y coordinate of the center of the circle.
