@@ -6,155 +6,225 @@ from ..SVG import SVG, Section
 class Table(SVG):
     def __init__(self, text):
         super().__init__(0, 0)
-        self.rows = []
-        self.cols = []
+        self.rows = {}
+        self.cols = {}
         self.boxes = {}
         self.text = text
 
-        self._check_row(0)
-        self._check_col(0)
+        self.background = Rect()
+        self.background.active = False
 
-    def _check_row(self, row):
-        n = len(self.rows)
-        if row < n:
-            return
+    def add_box(self, row, col, value):
+        """
+        Adds a text box to the table at the intersection of row and column.
+        If something exists there already this will overwrite it.
 
-        for i in range(n, row + 1):
-            r = Row(self)
-            self.rows.append(r)
+        :param row: Integer represent the row to put the box in
+        :param col: Integer representing the column to but the box in
+        :param value: The text value of the text box
 
-    def _check_col(self, col):
-        n = len(self.cols)
-        if col < n:
-            return
+        """
+        text = self.text.copy()
+        text.text = str(value)
 
-        for i in range(n, col + 1):
-            c = Column(self)
-            self.cols.append(c)
+        self.add_row(row)
+        self.add_col(col)
 
-    def add_item(self, row, col, val=None):
-        max_rows = max(list(range(len(self.rows))) + [row])
-        max_cols = max(list(range(len(self.cols))) + [col])
+        box = TextBox(text, self.rows[row], self.cols[col])
+        self.boxes[row, col] = box
 
-        for i in range(max_rows + 1):
-            self._check_row(i)
+    def add_row(self, row_index: int):
+        if row_index not in self.rows.keys():
+            row = Row(self, row_index)
+            self.rows[row_index] = row
 
-        for i in range(max_cols + 1):
-            self._check_col(i)
+    def add_col(self, col_index: int):
+        if col_index not in self.cols.keys():
+            col = Column(self, col_index)
+            self.cols[col_index] = col
 
-        new_box = TextBox(self.text.copy(), self.rows[row], self.cols[col])
+    def set_row_height(self, height):
+        for row in self.rows.values():
+            row.h = height
 
-        if val is not None:
-            new_box.text.text = str(val)
+    def set_col_width(self, width):
+        for col in self.cols.values():
+            col.w = width
 
-        self.boxes[row, col] = new_box
+    def even_row_height(self, total_h):
+        """
+        Given the desired height, computes the row height for each row assuming all rows will have the same row height.
+
+        :param total_h: number representing the desired height of the table
+        """
+        max_row = len(self.rows)
+        h = total_h / max_row
+        self.set_row_height(h)
+
+    def even_col_width(self, total_w):
+        """
+        Given the desired width, computes the column width for each column
+        assuming all columns will have the same column width.
+
+        :param total_w: number representing the desired width of the table
+        """
+        max_col = len(self.cols)
+        w = total_w / max_col
+        self.set_col_width(w)
+
+    def weighted_col_width(self, total_w, weights):
+        """
+        Given the desired width and weights, computes the column width for each column.
+
+        :param total_w: number representing the desired width of the table
+        """
+        max_col = len(self.cols)
+        i = 0
+        for col in self.cols.values():
+            col.w = total_w * weights[i]
+            i += 1
+
+    def weighted_row_width(self, total_h, weights):
+        """
+        Given the desired height and weights, computes the row height for each row.
+
+        :param total_h: number representing the desired height of the table
+        """
+        max_col = len(self.rows)
+        i = 0
+        for row in self.rows.values():
+            row.h = total_h * weights[i]
+            i += 1
 
     def set_sizes(self):
-        self._set_rows()
-        self._set_cols()
+        self._rows()
+        self._cols()
+        self._boxes()
 
-    def _set_cols(self):
-        w, h = self.size
-        cw = 0
-        dflt = []
+        w = sum([col.w for col in self.cols.values()])
+        h = sum([row.h for row in self.rows.values()])
 
-        for col in self.cols:
-            if col.lock:
-                cw = cw + col.w
-            else:
-                dflt.append(col)
+        self.size = (w, h)
 
-        leftovers = w - cw
-        dw = 0
-        if leftovers > 0 and len(dflt) > 0:
-            dw = leftovers / (len(dflt))
-        for col in dflt:
-            col.w = dw
-            col.lock = False
-
-        x = 0
-        for col in self.cols:
-            col.x = x
-            col.h = h
-            x = x + col.w
-
-    def _set_rows(self):
-        w, h = self.size
-        ch = 0
-        dflt = []
-
-        for row in self.rows:
-            if row.lock:
-                ch = ch + row.h
-            else:
-                dflt.append(row)
-
-        if not dflt:
-            h = sum([row.h for row in self.rows])
-            self.size = (w, h)
-
-        leftovers = h - ch
-        dh = 0
-        if leftovers > 0 and len(dflt) > 0:
-            dh = leftovers / len(dflt)
-
-        for row in dflt:
-            row.set_h(dh)
-            row.lock = False
-
+    def _rows(self):
+        rows = list(self.rows.keys())
+        rows.sort()
         y = 0
-        for row in self.rows:
+        for i in rows:
+            row = self.rows[i]
+            row.w = self.w
             row.y = y
-            row.w = w
-            y = y + row.h
+            y += row.h
+
+    def _cols(self):
+        cols = list(self.cols.keys())
+        cols.sort()
+        x = 0
+        for i in cols:
+            col = self.cols[i]
+            col.h = self.h
+            col.x = x
+            x += col.w
+
+    def _boxes(self):
+        for box in self.boxes.values():
+            box.x = box.col.x
+            box.y = box.row.y
 
     def construct(self):
-        self.set_sizes()
-
-        for col in self.cols:
-            self.add_child(col)
-
-        for row in self.rows:
+        for row in self.rows.values():
             self.add_child(row)
+
+        for col in self.cols.values():
+            self.add_child(col)
 
         for box in self.boxes.values():
             self.add_child(box)
 
-        svg = super().construct()
-
-        return svg
+        return super().construct()
 
 
 class Row(Rect):
-    def __init__(self, parent: SVG, h: float = 0):
+    def __init__(self, parent: Table, index: int, h: float = 0):
         super().__init__()
         w, _ = parent.size
+        self._parent = parent
+        self._index = index
+
         self.x = 0
         self.y = 0
         self.w = w
         self.h = h
 
-        self.lock = False
+    def _children(self):
+        cols = list(self._parent.cols.keys())
+        row = self._index
 
-    def set_h(self, height):
-        self.h = height
-        self.lock = True
+        return [self._parent.boxes[row, col] for col in cols]
+
+    def text_color(self, color: tuple[int, int, int]):
+        """
+        Sets the text color for all boxes in this column.
+
+        :param color: tuple of rgb values representing the color of the text
+        """
+        for child in self._children():
+            child.text.fill = color
 
 
 class Column(Rect):
-    def __init__(self, parent: SVG, w: float = 0):
+    align_center = 0
+    align_left = 1
+    align_right = 2
+
+    def __init__(self, parent: Table, index: int, w: float = 0):
         super().__init__()
         _, h = parent.size
+        self._parent = parent
+        self._index = index
+
         self.x = 0
         self.y = 0
         self.w = w
         self.h = h
 
-        self.lock = False
+    def _children(self):
+        rows = range(len(self._parent.rows))
+        col = self._index
 
-    def set_w(self, width):
-        self.w = width
-        self.lock = True
+        return [self._parent.boxes[row, col] for row in rows]
+
+    def align_text(self, alignment: int):
+        """
+        Sets the test alignment for the column.
+
+        :param alignment: integer representing the type of alignment to do for the entire column.
+        This can be overridden later.
+            (see Column.align_center, Column.align_left, Column.align_right)
+        """
+
+        def alignment_rules(box):
+            if alignment == self.align_left:
+                box.left()
+            elif alignment == self.align_center:
+                box.center()
+            elif alignment == self.align_right:
+                box.right()
+
+        for child in self._children():
+            alignment_rules(child)
+
+    def text_color(self, color: tuple[int, int, int]):
+        """
+        Sets the text color for all boxes in this column.
+
+        :param color: tuple of rgb values representing the color of the text
+        """
+        for child in self._children():
+            child.text.fill = color
+
+    def construct(self, **kwargs):
+        return super().construct()
 
 
 class TextBox(Section):
@@ -171,19 +241,19 @@ class TextBox(Section):
 
         self.alignment = self.center
 
-    def center(self):
+    def _center(self):
         w = self.col.w
         self.text.x = w / 2
         self.text.anchor = 'middle'
         self.middle()
 
-    def left(self):
+    def _left(self):
         w = self.col.w
         self.text.x = self.margin * w
         self.text.anchor = 'start'
         self.middle()
 
-    def right(self):
+    def _right(self):
         w = self.col.w
         self.text.x = w - self.margin * w
         self.text.anchor = 'end'
@@ -202,8 +272,19 @@ class TextBox(Section):
         self.x = self.col.x
         self.y = self.row.y
 
+    def left(self):
+        self.alignment = self._left
+
+    def right(self):
+        self.alignment = self._right
+
+    def center(self):
+        self.alignment = self._center
+        return
+
     def construct(self):
         self._set()
+
         self.add_child(self.rect)
         self.add_child(self.text)
 
