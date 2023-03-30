@@ -1,5 +1,5 @@
 from .Paths import Path
-from math import cos, sin, pi
+from math import pi, tan
 
 
 class Rect(Path):
@@ -288,7 +288,7 @@ class Polygon(Path):
             List Entry[0]: x value for the next drawn point
             List Entry[1]: y value for the next drawn point
 
-            See `Polygon Documentation <https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polygon>`_ for more information
+            See `Polygon Documentation <https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polygon>`_
         """
         return self._points
 
@@ -349,12 +349,13 @@ class Bezier(Path):
 
 
 class PartialCircle(Path):
-    def __init__(self, x=0.0, y=0.0, r=0.0, theta=0.0):
+    def __init__(self, x=0.0, y=0.0, r=0.0, theta1=0.0, theta2=0.0):
         """
         :param x: x coordinate of the center of the circle.
         :param y: y coordinate of the center of the circle.
         :param r: radius of the circle.
-        :param theta: angle of the arc in radians.
+        :param theta1: angle between the circle center and the first point.
+        :param theta2: angle between the first point and the second (angle of the arc).
 
 
         location/size parameters should be pixels.
@@ -364,9 +365,20 @@ class PartialCircle(Path):
         self.x = x
         self.y = y
         self.r = r
-        self.theta = theta
+        self.theta1 = theta1
+        self.theta2 = theta2
 
-        self.angle = 0
+    def _tan(self, theta):
+        theta = theta % (2 * pi)
+        _tan = tan(theta)
+        sign = 1
+        if pi / 2 < theta <= 3 * pi / 2:
+            sign = -1
+
+        y = sign * (self.r ** 2 / (1 + _tan ** 2)) ** 0.5
+        x = _tan * y
+
+        return x, y
 
     def copy(self, item=None):
         if item is None:
@@ -375,27 +387,27 @@ class PartialCircle(Path):
         item.x = self.x
         item.y = self.y
         item.r = self.r
-        item.theta = self.theta
-        item.angle = self.angle
+        item.theta1 = self.theta1
+        item.theta2 = self.theta2
 
         item = super().copy(item)
 
         return item
 
     def construct(self, **kwargs):
-        x1 = self.x
-        y1 = self.y - self.r
-        x2 = x1 + self.r * sin(pi - self.theta)
-        y2 = self.y + self.r * cos(pi - self.theta)
+        x1, y1 = self._tan(self.theta1)
+        x1, y1 = self.x + x1, self.y - y1
 
-        if (x2 - x1) < 0:
+        x2, y2 = self._tan(self.theta1 + self.theta2)
+        x2, y2 = self.x + x2, self.y - y2
+
+        flag = 0
+        if self.theta2 > pi:
             flag = 1
-        else:
-            flag = 0
 
         d = f'M {x1} {y1} A {self.r} {self.r} 0 {flag} 1 {x2} {y2} L {self.x} {self.y} Z'
-        parameters = {'d': d,
-                      'transform': f'rotate({self.angle}, {self.x}, {self.y})'}
+
+        parameters = {'d': d}
 
         entries = super().construct(parameters)
 
