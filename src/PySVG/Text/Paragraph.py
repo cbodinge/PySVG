@@ -10,7 +10,7 @@ class Paragraph(Section):
         self.linewidth = 0
         self.indention = 0
         self.text = text
-        self.text.baseline = 'hanging'
+        self.text.baseline = 'central'
 
         self.background = Rect(fill=(255, 255, 255), fill_opacity=1, active=False)
         self.addChild(self.background)
@@ -58,7 +58,7 @@ class Paragraph(Section):
             t = self.text.copy()
             t.text = line
             t.x = 0
-            t.y = i * self.linewidth
+            t.y = self.linewidth * (i + 0.5)
 
             self.addChild(t)
 
