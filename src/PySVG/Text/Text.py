@@ -83,3 +83,7 @@ class Text(Base):
                     stroke_width=self.stroke_width,
                     stroke_dasharray=self.stroke_dasharray,
                     stroke_opacity=self.stroke_opacity)
+
+    @property
+    def width(self):
+        return sum([self.font[ord(letter)] for letter in self.text]) * self.font.unit_per_em
