@@ -4,15 +4,39 @@ from ..SVG import SVG, Section
 
 
 class Table(SVG):
-    def __init__(self, text):
-        super().__init__(0, 0)
-        self.rows = {}
-        self.cols = {}
-        self.boxes = {}
+    def __init__(self, text, data: list[list[str]], w=0, h=0):
+        super().__init__(w, h)
+        self.boxes = {(i, j): data[i][j] for i in range(len(data)) for j in range(len(data[0]))}
         self.text = text
+        self.rows = [0 for _ in range(len(data))]
+        self.cols = [0 for _ in range(len(data[0]))]
+
+        self._rows = [0 for _ in self.r_rng]
+        self._cols = [0 for _ in self.c_rng]
+
+        self._rr = [Rect(active=False) for _ in self.r_rng]
+        self._cr = [Rect(active=False) for _ in self.c_rng]
+
+        _ = [self.add_child(self._rr[i]) for i in self.r_rng]
+        _ = [self.add_child(self._cr[i]) for i in self.c_rng]
+
+        self._from_data(data)
 
         self.background = Rect()
         self.background.active = False
+
+    @property
+    def r_rng(self):
+        return range(len(self.rows))
+
+    @property
+    def c_rng(self):
+        return range(len(self.cols))
+
+    def _from_data(self, data):
+        for row, lst in enumerate(data):
+            for col, el in enumerate(lst):
+                self.add_box(row, col, el)
 
     def add_box(self, row, col, value):
         """
@@ -27,29 +51,20 @@ class Table(SVG):
         text = self.text.copy()
         text.text = str(value)
 
-        self.add_row(row)
-        self.add_col(col)
-
-        box = TextBox(text, self.rows[row], self.cols[col])
-        self.boxes[row, col] = box
-
-    def add_row(self, row_index: int):
-        if row_index not in self.rows.keys():
-            row = Row(self, row_index)
-            self.rows[row_index] = row
-
-    def add_col(self, col_index: int):
-        if col_index not in self.cols.keys():
-            col = Column(self, col_index)
-            self.cols[col_index] = col
+        self.boxes[row, col] = TextBox(text)
+        self.add_child(self.boxes[row, col].root)
 
     def set_row_height(self, height):
-        for row in self.rows.values():
-            row.h = height
+        for i in self.r_rng:
+            self._rows[i] = height
+
+        self.h = height * len(self.rows)
 
     def set_col_width(self, width):
-        for col in self.cols.values():
-            col.w = width
+        for i in self.c_rng:
+            self._cols[i] = width
+
+        self.w = width * len(self.rows)
 
     def even_row_height(self, total_h):
         """
@@ -72,220 +87,126 @@ class Table(SVG):
         w = total_w / max_col
         self.set_col_width(w)
 
-    def weighted_col_width(self, total_w, weights):
+    def weighted_col_width(self, total_w: float, weights: list[float]):
         """
         Given the desired width and weights, computes the column width for each column.
 
         :param total_w: number representing the desired width of the table
+        :param weights: list of percentages that define column widths
         """
-        max_col = len(self.cols)
-        i = 0
-        for col in self.cols.values():
-            col.w = total_w * weights[i]
-            i += 1
+        self._cols = [total_w * weights[i] for i in self.c_rng]
+        self.w = total_w
 
-    def weighted_row_width(self, total_h, weights):
+    def weighted_row_width(self, total_h: float, weights: list[float]):
         """
         Given the desired height and weights, computes the row height for each row.
 
         :param total_h: number representing the desired height of the table
+        :param weights: list of percentages that define row heights
         """
-        max_col = len(self.rows)
-        i = 0
-        for row in self.rows.values():
-            row.h = total_h * weights[i]
-            i += 1
+        self._rows = [total_h * weights[i] for i in self.r_rng]
+        self.h = total_h
 
     def set_sizes(self):
-        self._rows()
-        self._cols()
-        self._boxes()
-
-        w = sum([col.w for col in self.cols.values()])
-        h = sum([row.h for row in self.rows.values()])
-
-        self.size = (w, h)
-
-    def _rows(self):
-        rows = list(self.rows.keys())
-        rows.sort()
+        self.w = sum(self._cols)
+        self.h = sum(self._rows)
         y = 0
-        for i in rows:
-            row = self.rows[i]
-            row.w = self.w
-            row.y = y
-            y += row.h
+        for row in self.r_rng:
+            h = self._rows[row]
+            x = 0
+            rect = self._rr[row]
+            rect.y = y
+            rect.h = h
+            rect.w = self.w
+            for col in self.c_rng:
+                w = self._cols[col]
 
-    def _cols(self):
-        cols = list(self.cols.keys())
-        cols.sort()
-        x = 0
-        for i in cols:
-            col = self.cols[i]
-            col.h = self.h
-            col.x = x
-            x += col.w
+                if y == 0:
+                    rect = self._cr[col]
+                    rect.x = x
+                    rect.h = self.h
+                    rect.w = w
 
-    def _boxes(self):
+                box = self.boxes[row, col]
+                box.x = x
+                box.y = y
+                box.w = w
+                box.h = h
+
+                x += w
+            y += h
+
+    def set_box_text(self, row: int, col: int, to_copy: Text):
+        box = self.boxes[row, col]
+        text = box.text.text
+        box.text = to_copy.copy()
+        box.text.text = text
+
+    def set_row_text(self, to_copy: Text, row: int):
+        for i in self.c_rng:
+            self.set_box_text(row, i, to_copy)
+
+    def set_col_text(self, to_copy: Text, col: int):
+        for i in self.c_rng:
+            self.set_box_text(i, col, to_copy)
+
+    def set_box_color(self, row: int, col: int, color: tuple[int, int, int], opacity: float):
+        box = self.boxes[row, col].rect
+        box.active = True
+        box.fill = color
+        box.fill_opacity = opacity
+
+    def set_rect_color(self, rect: Rect, color: tuple[int, int, int], opacity: float):
+        rect.active = True
+        rect.fill = color
+        rect.fill_opacity = opacity
+
+    def set_row_color(self, row: int, color: tuple[int, int, int], opacity: float):
+        self.set_rect_color(self._rr[row], color, opacity)
+
+    def set_col_color(self, col: int, color: tuple[int, int, int], opacity: float):
+        self.set_rect_color(self._cr[col], color, opacity)
+
+    def set(self):
+        self.set_sizes()
         for box in self.boxes.values():
-            box.x = box.col.x
-            box.y = box.row.y
-
-    def construct(self):
-        for row in self.rows.values():
-            self.add_child(row)
-
-        for col in self.cols.values():
-            self.add_child(col)
-
-        for box in self.boxes.values():
-            self.add_child(box)
-
-        return super().construct()
-
-
-class Row(Rect):
-    def __init__(self, parent: Table, index: int, h: float = 0):
-        super().__init__()
-        w, _ = parent.size
-        self._parent = parent
-        self._index = index
-
-        self.x = 0
-        self.y = 0
-        self.w = w
-        self.h = h
-
-    def _children(self):
-        cols = list(self._parent.cols.keys())
-        row = self._index
-
-        return [self._parent.boxes[row, col] for col in cols]
-
-    def text_color(self, color: tuple[int, int, int]):
-        """
-        Sets the text color for all boxes in this column.
-
-        :param color: tuple of rgb values representing the color of the text
-        """
-        for child in self._children():
-            child.text.fill = color
-
-
-class Column(Rect):
-    align_center = 0
-    align_left = 1
-    align_right = 2
-
-    def __init__(self, parent: Table, index: int, w: float = 0):
-        super().__init__()
-        _, h = parent.size
-        self._parent = parent
-        self._index = index
-
-        self.x = 0
-        self.y = 0
-        self.w = w
-        self.h = h
-
-    def _children(self):
-        rows = range(len(self._parent.rows))
-        col = self._index
-
-        return [self._parent.boxes[row, col] for row in rows]
-
-    def align_text(self, alignment: int):
-        """
-        Sets the test alignment for the column.
-
-        :param alignment: integer representing the type of alignment to do for the entire column.
-        This can be overridden later.
-            (see Column.align_center, Column.align_left, Column.align_right)
-        """
-
-        def alignment_rules(box):
-            if alignment == self.align_left:
-                box.left()
-            elif alignment == self.align_center:
-                box.center()
-            elif alignment == self.align_right:
-                box.right()
-
-        for child in self._children():
-            alignment_rules(child)
-
-    def text_color(self, color: tuple[int, int, int]):
-        """
-        Sets the text color for all boxes in this column.
-
-        :param color: tuple of rgb values representing the color of the text
-        """
-        for child in self._children():
-            child.text.fill = color
-
-    def construct(self, **kwargs):
-        return super().construct()
+            box.set()
 
 
 class TextBox(Section):
-    def __init__(self, text: Text, row, col):
-        super().__init__(0, 0)
-        self.row, self.col = row, col
+    def __init__(self, text: Text):
+        super().__init__()
 
-        self.rect = Rect()
+        self.rect = Rect(x=0, y=0, w='100%', h='100%')
         self.rect.active = False
 
         self.text = text
 
         self.margin = 0.03
 
-        self.alignment = self.center
+        self.alignment = self.right
 
     def _center(self):
-        w = self.col.w
-        self.text.x = w / 2
+        self.text.x = self.w / 2
         self.text.anchor = 'middle'
         self.middle()
 
-    def _left(self):
-        w = self.col.w
-        self.text.x = self.margin * w
+    def left(self):
+        self.text.x = self.margin * self.w
         self.text.anchor = 'start'
         self.middle()
 
-    def _right(self):
-        w = self.col.w
-        self.text.x = w - self.margin * w
+    def right(self):
+        self.text.x = self.w - self.margin * self.w
         self.text.anchor = 'end'
         self.middle()
 
     def middle(self):
-        h = self.row.h
-        self.text.y = h / 2
+        self.text.y = self.h / 2
         self.text.baseline = 'central'
 
-    def _set(self):
+    def set(self):
         self.alignment()
-        self.rect.w = self.col.w
-        self.rect.h = self.row.h
-
-        self.x = self.col.x
-        self.y = self.row.y
-
-    def left(self):
-        self.alignment = self._left
-
-    def right(self):
-        self.alignment = self._right
-
-    def center(self):
-        self.alignment = self._center
-        return
-
-    def construct(self):
-        self._set()
-
-        self.add_child(self.rect)
-        self.add_child(self.text)
-
-        return super().construct()
+        self.middle()
+        self.addChild(self.rect)
+        self.addChild(self.text)

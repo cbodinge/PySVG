@@ -1,129 +1,85 @@
-from ..Paths import Path
+from ..Draw.Base import Base
 
 
-class Text(Path):
-    def __init__(self):
-        super().__init__()
-        self.text = ''
-        self.x = 0
-        self.y = 0
-        self.angle = 0
-        self.font = None
+class Text(Base):
+    def __init__(self, font, text='', size=10, x=0, y=0, angle=0, baseline=None, anchor=None, **kwargs):
+        super().__init__('text', **kwargs)
+        self.text = text
+        self.x = x
+        self.y = y
+        self.angle = angle
+        self.font = font
+        self.size = size
 
-        self._baseline = None
-        self._anchor = None
+        self.type = 'text'
 
-    @property
-    def baseline(self):
-        return self._baseline
+        self.baseline = baseline
+        # options
+        # auto, text-bottom, alphabetic, ideographic, middle, central, mathematical, hanging, text-top
 
-    @baseline.setter
-    def baseline(self, baseline: str):
-        options = ['auto', 'text-bottom', 'alphabetic', 'ideographic', 'middle', 'central', 'mathematical', 'hanging',
-                   'text-top']
+        self.anchor = anchor
+        # options
+        # 'start', 'middle', 'end'
 
-        if baseline in options:
-            self._baseline = baseline
-
-    @property
-    def anchor(self):
-        """
-        controls how the text is drawn relative to the x coordinate. Similar to left, center, right alignment.
-        """
-        return self._anchor
-
-    @anchor.setter
-    def anchor(self, anchor: str):
-        options = ['start', 'middle', 'end']
-
-        if anchor in options:
-            self._anchor = anchor
-
-    def copy(self, item=None):
-        if item is None:
-            item = Text()
-
-        item.x = self.x
-        item.y = self.y
-        item.text = self.text
-        item.angle = self.angle
-
-        item.font = self.font.copy()
-
-        item.baseline = self.baseline
-        item.anchor = self.anchor
-
-        item = super().copy(item)
-
-        return item
-
-    def construct(self, **kwargs):
-        if self.font is None:
-            self.active = False
-
-        if not self.active:
-            return ''
+    def _validate(self):
+        super(Text, self)._validate()
+        s = super(Text, self)._get_string_value
 
         if self.angle != 0:
-            transform = "translate(%s, %s) rotate(%s)" % (self.x, self.y, self.angle)
-            x = 0
-            y = 0
+            # x ########################################################################################################
+            self.valid['x'] = s(0, 'x')
+
+            # y ########################################################################################################
+            self.valid['y'] = s(0, 'y')
+
+            # angle ####################################################################################################
+            self.valid['transform'] = f'transform = "translate({self.x}, {self.y}) rotate({self.angle})"'
         else:
-            transform = None
-            x = self.x
-            y = self.y
+            # x ########################################################################################################
+            self.valid['x'] = s(self.x, 'x')
 
-        parameters = {'x': x,
-                      'y': y,
-                      'font-family': self.font.family,
-                      'font-size': self.font.size,
-                      'font-weight': self.font.weight,
-                      'dominant-baseline': self._baseline,
-                      'text-anchor': self._anchor,
-                      'xml:space': 'preserve',
-                      'transform': transform}
+            # y ########################################################################################################
+            self.valid['y'] = s(self.y, 'y')
 
-        entries = super().construct(parameters)
+        # font size ####################################################################################################
+        self.valid['size'] = s(self.size, 'font-size')
 
-        row = '<text %s>%s</text>' % (entries, str(self.text))
+        # font weight ##################################################################################################
+        self.valid['weight'] = s(self.font.weight, 'font-weight')
 
-        return row
+        # font family ##################################################################################################
+        self.valid['family'] = s(self.font.family, 'font-family')
 
+        # baseline #####################################################################################################
+        self.valid['dominant baseline'] = s(self.baseline, 'dominant-baseline')
 
-class EmbeddedText(Text):
-    def copy(self, item=None):
-        if item is None:
-            item = EmbeddedText()
+        # anchor #######################################################################################################
+        self.valid['text-anchor'] = s(self.anchor, 'text-anchor')
 
-        return super().copy(item)
+        # preserve spaces ##############################################################################################
+        self.valid['xml:space'] = s('preserve', 'xml:space')
 
-    def construct(self, **kwargs):
-        if self.font is None:
-            self.active = False
-
-        if not self.active:
+    def construct(self, depth):
+        if self.active is False:
             return ''
 
-        if self.angle != 0:
-            transform = "translate(%s, %s) rotate(%s)" % (self.x, self.y, self.angle)
-            x = 0
-            y = 0
-        else:
-            transform = None
-            x = self.x
-            y = self.y
+        tab = '   ' * depth
+        self._validate()
+        s = ' '.join([i for i in self.valid.values() if i is not None])
+        return f'{tab}<text {s}>{self.text}</text>'
 
-        parameters = {'x': x,
-                      'y': y,
-                      'font-family': f'{self.font.family}-{self.font.weight}',
-                      'font-size': self.font.size,
-                      'dominant-baseline': self._baseline,
-                      'text-anchor': self._anchor,
-                      'xml:space': 'preserve',
-                      'transform': transform}
-
-        entries = super(Text, self).construct(parameters)
-
-        row = '<text %s>%s</text>' % (entries, str(self.text))
-
-        return row
+    def copy(self):
+        return Text(self.font,
+                    text=self.text,
+                    size=self.size,
+                    x=self.x,
+                    y=self.y,
+                    angle=self.angle,
+                    baseline=self.baseline,
+                    anchor=self.anchor,
+                    fill=self.fill,
+                    fill_opacity=self.fill_opacity,
+                    stroke=self.stroke,
+                    stroke_width=self.stroke_width,
+                    stroke_dasharray=self.stroke_dasharray,
+                    stroke_opacity=self.stroke_opacity)

@@ -1,65 +1,41 @@
-from pathlib import Path as P
 from fontTools.ttLib import TTFont
 from base64 import b64encode
 import inspect
 import os
+from pathlib import Path
 
 
-class Font:
-    def __init__(self, family: str, size: int, weight: str):
+class Font(dict):
+    def __init__(self, family: str, weight: str):
         """
         This class is used by Text objects to define the fonts used by those objects.
         The fonts directory holds the TTF files and should be in the same directory as this module definition.
 
         :param family: string that defines the font family to use. Must match one of the folders in the fonts
         directory
-        :param size: Point size of the font
-        :param weight: Weight/Thickness of the font. The weight must match one of the files in the directory corresponding to family
+        :param weight: Weight/Thickness of the font.
+        The weight must match one of the files in the directory corresponding to family
         """
 
-        # Searches Working Directory for font path
-        # path is parent/fonts/family/weight.ttf
-        # Currently only formatted for truetype fonts
-        path = P(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
         file = weight + '.ttf'
+        path = Path(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
         path = path / 'fonts' / family / file
-        font = TTFont(path)
         self.path = path
-        self.cmap = font['cmap'].getcmap(3, 1).cmap
-        self.glyph_set = font.getGlyphSet()
+        font = TTFont(path)
+        cmap = font['cmap'].getcmap(3, 1).cmap
+        glyphs = font.getGlyphSet()
         self.units_per_em = font['head'].unitsPerEm
-        self.size = size
         self.family = family
         self.weight = weight
 
-    def copy(self):
-        """
-        Creates a new instance of this class with identical parameters.
+        super().__init__({_ord: glyphs[_chr].width for _ord, _chr in cmap.items()})
+        self['.notdef'] = glyphs['.notdef']
 
-        :return: a copy of this class as a new instance
-        :rtype: Font
-        """
-        font = Font(self.family, self.size, self.weight)
-
-        return font
-
-    def getTextWidth(self, text: str):
-        """
-        Calculates the width of the string in pixels.
-
-        :param text: the string to determine the width of.
-        :return: the string width
-        :rtype: float
-        """
-        total = 0
-        for character in text:
-            if ord(character) in self.cmap and self.cmap[ord(character)] in self.glyph_set:
-                total += self.glyph_set[self.cmap[ord(character)]].width
-            else:
-                total += self.glyph_set['.notdef'].width
-        total = total * float(self.size) / self.units_per_em
-
-        return total
+    def __getitem__(self, item):
+        try:
+            return super().__getitem__(item)
+        except KeyError:
+            return super().__getitem__('.notdef')
 
     def getBase64(self):
         with open(self.path, 'rb') as file:

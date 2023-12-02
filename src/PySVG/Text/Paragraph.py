@@ -1,64 +1,65 @@
 from ..Text import Text
 from ..SVG import Section
+from ..Draw import Rect
 
 
 class Paragraph(Section):
-    def __init__(self, x: float = 0, y: float = 0):
-        super().__init__(x, y)
-        self.w = 1
-        self.h = 1000
+    def __init__(self, text: Text, w: float, h: float, x: float = 0, y: float = 0):
+        super().__init__(x, y, w, h)
 
         self.linewidth = 0
         self.indention = 0
-        self.text = Text()
+        self.text = text
+        self.text.baseline = 'hanging'
 
-        self._n = 0
+        self.background = Rect(fill=(255, 255, 255), fill_opacity=1, active=False)
+        self.addChild(self.background)
+
         self.fit = True
         self.lines = []
 
+        self._get_lines()
+
     def _get_lines(self):
-        words = self.text.text.split(' ')
+        t = self.text
         lines = []
-        t = ' '
+        words = t.text.split(' ')
+        wlens = [sum([self.text.font[ord(letter)] for letter in word]) * t.size / t.font.units_per_em for word in words]
+        space = self.text.font[ord(' ')] * t.size / t.font.units_per_em
 
-        while words:
-            q = []
-            line = ''
-            while words:
-                word = words.pop(0)
-                if word != '\n':
-                    line = self.indention * t + ' '.join(q) + ' ' + word
-                    x = self.text.font.getTextWidth(line)
-                    test = x < self.w
-                    if test:
-                        q.append(word)
-                    else:
-                        line = self.indention * t + ' '.join(q)
-                        words.insert(0, word)
-                        break
-                else:
-                    line = self.indention * t + ' '.join(q)
-                    break
+        s = 0
+        beg = 0
+        for i, word in enumerate(words):
+            pos = s + space + wlens[i]
+            if pos > self.w:
+                lines.append(' '.join(words[beg:i]))
+                beg = i
+                s = 0
+            elif pos == self.w:
+                lines.append(' '.join(words[beg:i + 1]))
+                beg = i + 1
+                s = 0
+            else:
+                if i == len(words) - 1:
+                    lines.append(' '.join(words[beg:]))
+                s = pos
 
-            lines.append(line)
-            self._n = len(lines)
+        self.lines = lines
 
-        return lines
+    def set(self):
+        if self.h == 0:
+            # assign h based on linwidth and number of lines
+            self.h = self.linewidth * len(self.lines)
+        else:
+            # assign linewidth based on h
+            self.linewidth = self.h / len(self.lines)
 
-    def makefit(self):
-        self.lines = self._get_lines()
-        self.h = self.linewidth * self._n
+        for i, line in enumerate(self.lines):
+            t = self.text.copy()
+            t.text = line
+            t.x = 0
+            t.y = i * self.linewidth
 
-    def construct(self):
-        self.makefit()
+            self.addChild(t)
 
-        i = .5
-        for line in self.lines:
-            text = self.text.copy()
-            text.y = i * self.linewidth
-            text.x = 0
-            text.text = line
-            self.add_child(text)
-            i += 1
-
-        return super().construct()
+        return self.root
