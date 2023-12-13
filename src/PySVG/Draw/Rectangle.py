@@ -49,3 +49,15 @@ class Rect(Base):
 
         # ry ###########################################################################################################
         self.valid['ry'] = s(self.ry, 'ry')
+
+    def copy(self, item: 'Rect' = None):
+        item = super().copy(Rect()) if item is None else super().copy(item)
+
+        item.x = self.x
+        item.y = self.y
+        item.w = self.w
+        item.h = self.h
+        item.rx = self.rx
+        item.ry = self.ry
+
+        return item

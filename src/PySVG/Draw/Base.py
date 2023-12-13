@@ -1,8 +1,7 @@
-from numbers import Number
-
 from ..Data_Structures import Node
 
 
+# noinspection PyBroadException
 class Base(Node):
     def __init__(self, name, fill=None, fill_opacity=None, stroke=None, stroke_width=None, stroke_opacity=None,
                  stroke_dasharray=None, active=True):
@@ -102,18 +101,16 @@ class Base(Node):
         s = ' '.join([i for i in self.valid.values() if i is not None])
         return f'{"   " * depth}<{self.type} {s}/>'
 
-# def copy(p: Base):
-#     """
-#     Creates a copy of this element by either initializing a new object of this class or adjusting the properties
-#     of the item passed to this function to match this class instance.
-#
-#     :param p: Item to copy
-#     :return: Copy of this class instance
-#     :rtype: Path
-#     """
-#     return Base(fill=p.fill,
-#                 fill_opacity=p.fill_opacity,
-#                 stroke=p.stroke,
-#                 stroke_opacity=p.stroke_opacity,
-#                 stroke_width=p.stroke_width,
-#                 stroke_dasharray=p.stroke_dasharray)
+    def copy(self, item: 'Base' = None):
+        item = Base('') if item is None else item
+
+        item.name = self.name
+        item.fill = self.fill
+        item.fill_opacity = self.fill_opacity
+        item.stroke = self.stroke
+        item.stroke_width = self.stroke_width
+        item.stroke_opacity = self.stroke_opacity
+        item.stroke_dasharray = self.stroke_dasharray
+        item.active = self.active
+
+        return item

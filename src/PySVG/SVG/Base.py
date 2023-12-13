@@ -3,14 +3,14 @@ from math import sin, cos, pi
 
 
 class SVG(Node):
-    def __init__(self, w=0, h=0, xmlns=''):
+    def __init__(self, w=0, h=0, xmlns='', active=True):
         super().__init__('svg')
+        self.type = 'svg'
+
         self.w = w
         self.h = h
-
-        self.type = 'svg'
         self.xmlns = xmlns
-        self.active = True
+        self.active = active
 
     def construct(self, depth):
         tab = '   ' * depth
@@ -22,22 +22,32 @@ class SVG(Node):
 
         return f'\n'.join(header + body + footer)
 
+    def copy(self):
+        svg = SVG(w=self.w, h=self.h, xmlns=self.xmlns, active=self.active)
+
+        for node in self.edges:
+            svg.add_child(node.copy())
+
+        return svg
+
 
 class G(Node):
-    def __init__(self, x=0, y=0, angle=0):
+    def __init__(self, x=0, y=0, angle=0, xc=0, yc=0, xscale=1, yscale=1, active=True):
         super().__init__('g')
+        self.type = 'g'
+
+        self.angle = angle
+
         self.x = x
         self.y = y
 
-        self.xc = 0
-        self.yc = 0
+        self.xc = xc
+        self.yc = yc
 
-        self.xscale = 1
-        self.yscale = 1
+        self.xscale = xscale
+        self.yscale = yscale
 
-        self.angle = angle
-        self.type = 'g'
-        self.active = True
+        self.active = active
 
     def header(self):
         x, y = self.x, self.y
@@ -64,6 +74,15 @@ class G(Node):
 
         return f'\n'.join(header + body + footer)
 
+    def copy(self):
+        g = G(x=self.x, y=self.y, angle=self.angle,
+              xc=self.xc, yc=self.yc, xscale=self.xscale, yscale=self.yscale, active=self.active)
+
+        for node in self.edges:
+            g.add_child(node.copy())
+
+        return g
+
 
 class Tree(Graph):
     def __init__(self):
@@ -82,11 +101,20 @@ class Tree(Graph):
 
         self.addChild(child.root)
 
+    def construct(self):
+        return self.root.construct(0)
+
 
 class Document(Tree):
     def __init__(self, **kwargs):
         super().__init__()
         self.root = SVG(xmlns='xmlns="http://www.w3.org/2000/svg"', **kwargs)
+
+    def copy(self):
+        d = Document()
+        d.root = self.root.copy()
+
+        return d
 
 
 class Section(Tree):
@@ -98,6 +126,12 @@ class Section(Tree):
 
     def addChild(self, child: Node):
         self.svg.add_child(child)
+
+    def copy(self):
+        s = Section()
+        s.root = self.root.copy()
+
+        return s
 
     @property
     def x(self):

@@ -68,21 +68,19 @@ class Text(Base):
         s = ' '.join([i for i in self.valid.values() if i is not None])
         return f'{tab}<text {s}>{self.text}</text>'
 
-    def copy(self):
-        return Text(self.font,
-                    text=self.text,
-                    size=self.size,
-                    x=self.x,
-                    y=self.y,
-                    angle=self.angle,
-                    baseline=self.baseline,
-                    anchor=self.anchor,
-                    fill=self.fill,
-                    fill_opacity=self.fill_opacity,
-                    stroke=self.stroke,
-                    stroke_width=self.stroke_width,
-                    stroke_dasharray=self.stroke_dasharray,
-                    stroke_opacity=self.stroke_opacity)
+    def copy(self, item: 'Text' = None):
+        item = super().copy(Text(self.font)) if item is None else super().copy(item)
+
+        item.font = self.font
+        item.text = self.text
+        item.size = self.size
+        item.x = self.x
+        item.y = self.y
+        item.angle = self.angle
+        item.baseline = self.baseline
+        item.anchor = self.anchor
+
+        return item
 
     @property
     def width(self):

@@ -32,3 +32,12 @@ class Circle(Base):
 
         # r ############################################################################################################
         self.valid['r'] = s(self.r, 'r')
+
+    def copy(self, item: 'Circle' = None):
+        item = super().copy(Circle()) if item is None else super().copy(item)
+
+        item.cx = self.cx
+        item.cy = self.cy
+        item.r = self.r
+
+        return item
