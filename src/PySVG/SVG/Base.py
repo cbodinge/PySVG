@@ -23,6 +23,9 @@ class SVG(Node):
         return f'\n'.join(header + body + footer)
 
     def copy(self):
+        if self.active is False:
+            return ''
+
         svg = SVG(w=self.w, h=self.h, xmlns=self.xmlns, active=self.active)
 
         for node in self.edges:
@@ -65,6 +68,9 @@ class G(Node):
         return f'<g transform="matrix({xs * c},{ys * s},{xs * -s},{ys * c},{xn},{yn})">'
 
     def construct(self, depth):
+        if self.active is False:
+            return ''
+
         tab = '   ' * depth
         header = [f'{tab}{self.header()}']
         footer = [f'{tab}</g>']
@@ -164,3 +170,14 @@ class Section(Tree):
     @h.setter
     def h(self, h):
         self.svg.h = h
+
+    @property
+    def xywh(self):
+        return self.root.x, self.root.y, self.svg.w, self.svg.h
+
+    @xywh.setter
+    def xywh(self, vals: tuple[float, float, float, float]):
+        self.root.x = vals[0]
+        self.root.y = vals[1]
+        self.svg.w = vals[2]
+        self.svg.h = vals[3]

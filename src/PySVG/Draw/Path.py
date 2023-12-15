@@ -9,8 +9,8 @@ class Path(Base):
     freely based on defined curve behavior and coordinates on which to draw. Subclass of `Base.Base`.
     """
 
-    def __init__(self, points=None):
-        super().__init__(name='path')
+    def __init__(self, points=None, **kwargs):
+        super().__init__(name='path', **kwargs)
         self.points = [] if points is None else points
         self.type = 'path'
 
