@@ -3,6 +3,9 @@ from ..Data_Structures import Node
 
 # noinspection PyBroadException
 class Base(Node):
+    """
+
+    """
     def __init__(self, name, fill=None, fill_opacity=None, stroke=None, stroke_width=None, stroke_opacity=None,
                  stroke_dasharray=None, active=True):
         super().__init__(name)
@@ -25,14 +28,16 @@ class Base(Node):
         s = ' '.join([i for i in self.valid.values() if i is not None])
         return f'<{self.type} {s}/>'
 
-    def _color2hex(self, color: tuple[int, int, int]):
+    @staticmethod
+    def _color2hex(color: tuple[int, int, int]):
         try:
             red, green, blue = [f'{i:0{2}x}' for i in color]
             return f'#{red}{green}{blue}'
         except:
             return None
 
-    def _get_string_value(self, val, var):
+    @staticmethod
+    def _get_string_value(val, var):
         try:
             if val is not None:
                 val = str(val)

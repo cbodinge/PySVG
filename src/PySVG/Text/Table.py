@@ -3,7 +3,7 @@ from ..Draw import Rect
 from ..SVG import SVG, Section
 
 
-class Table(SVG):
+class Table(Section):
     def __init__(self, text, data: list[list[str]], w=0, h=0):
         super().__init__(w, h)
         self.boxes = {(i, j): data[i][j] for i in range(len(data)) for j in range(len(data[0]))}
@@ -17,8 +17,8 @@ class Table(SVG):
         self._rr = [Rect(active=False) for _ in self.r_rng]
         self._cr = [Rect(active=False) for _ in self.c_rng]
 
-        _ = [self.add_child(self._rr[i]) for i in self.r_rng]
-        _ = [self.add_child(self._cr[i]) for i in self.c_rng]
+        _ = [self.addChild(self._rr[i]) for i in self.r_rng]
+        _ = [self.addChild(self._cr[i]) for i in self.c_rng]
 
         self._from_data(data)
 
@@ -52,7 +52,7 @@ class Table(SVG):
         text.text = str(value)
 
         self.boxes[row, col] = TextBox(text)
-        self.add_child(self.boxes[row, col].root)
+        self.addChild(self.boxes[row, col].root)
 
     def set_row_height(self, height):
         for i in self.r_rng:
@@ -137,10 +137,10 @@ class Table(SVG):
             y += h
 
     def set_box_text(self, row: int, col: int, to_copy: Text):
-        box = self.boxes[row, col]
-        text = box.text.text
-        box.text = to_copy.copy()
-        box.text.text = text
+        t = self.boxes[row, col].text
+        t.fill = to_copy.fill
+        t.fill_opacity = to_copy.fill_opacity
+        t.size = to_copy.size
 
     def set_row_text(self, to_copy: Text, row: int):
         for i in self.c_rng:
@@ -184,9 +184,12 @@ class TextBox(Section):
 
         self.margin = 0.03
 
+        self.addChild(self.rect)
+        self.addChild(self.text)
+
         self.alignment = self.right
 
-    def _center(self):
+    def center(self):
         self.text.x = self.w / 2
         self.text.anchor = 'middle'
         self.middle()
@@ -207,6 +210,3 @@ class TextBox(Section):
 
     def set(self):
         self.alignment()
-        self.middle()
-        self.addChild(self.rect)
-        self.addChild(self.text)

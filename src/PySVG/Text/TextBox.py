@@ -120,3 +120,11 @@ class TextBox(Section):
     @stroke_width.setter
     def stroke_width(self, val: float):
         self.background.stroke_width = val
+
+    @property
+    def size(self):
+        return self._text.size
+
+    @size.setter
+    def size(self, val: float):
+        self._text.size = val

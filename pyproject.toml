@@ -1,6 +1,6 @@
 [project]
 name = "PSVG"
-version = "0.2.4"
+version = "0.2.6"
 authors = [
     { name = "Carter Bodinger", email = "carterallenbodinger@yahoo.com" },
 ]
