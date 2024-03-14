@@ -8,7 +8,7 @@ class Paragraph(Section):
         super().__init__(x, y, w, h)
 
         self.linewidth = 0
-        self.indention = 0
+        self.indention = 4
         self.text = text
         self.text.baseline = 'central'
 
@@ -22,29 +22,48 @@ class Paragraph(Section):
 
     def _get_lines(self):
         t = self.text
+        t.font[ord('\t')] = t.font[ord(' ')] * self.indention
+
+        lines = t.text.split('\n')
+        result = []
+
+        for line in lines:
+            result += self.sublines(line)
+
+        self.lines = result
+
+    def sublines(self, text: str):
+        t = self.text
         lines = []
-        words = t.text.split(' ')
-        wlens = [sum([self.text.font[ord(letter)] for letter in word]) * t.size / t.font.units_per_em for word in words]
-        space = self.text.font[ord(' ')] * t.size / t.font.units_per_em
+        words = text.split(' ')
+        wlens = [sum([t.font[ord(letter)] for letter in word]) * t.size / t.font.units_per_em for word in words]
+        space = t.font[ord(' ')] * t.size / t.font.units_per_em
 
         s = 0
         beg = 0
         for i, word in enumerate(words):
             pos = s + space + wlens[i]
             if pos > self.w:
-                lines.append(' '.join(words[beg:i]))
+                line = ' '.join(words[beg:i])
+                line = line.replace('\t', ' ' * self.indention)
+                lines.append(line)
                 beg = i
                 s = 0
             elif pos == self.w:
-                lines.append(' '.join(words[beg:i + 1]))
+                line = ' '.join(words[beg:i + 1])
+                line = line.replace('\t', ' ' * self.indention)
+                lines.append(line)
                 beg = i + 1
                 s = 0
             else:
                 if i == len(words) - 1:
-                    lines.append(' '.join(words[beg:]))
+                    line = ' '.join(words[beg:])
+                    line = line.replace('\t', ' ' * self.indention)
+                    lines.append(line)
                 s = pos
 
-        self.lines = lines
+        return lines
+
 
     def set(self):
         if self.h == 0:
@@ -62,4 +81,4 @@ class Paragraph(Section):
 
             self.addChild(t)
 
-        return self.root
+        return self
