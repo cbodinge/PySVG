@@ -4,9 +4,11 @@ from .Base import Base
 class Circle(Base):
     def __init__(self, cx=0, cy=0, r=0, **kwargs):
         """
-        :param x: x coordinate of the center of the circle.
-        :param y: y coordinate of the center of the circle.
-        :param r: radius of the circle.
+        Concrete Implementation of `Draw.Base`
+
+        :param cx: x coordinate of the center of the circle
+        :param cy: y coordinate of the center of the circle
+        :param r: radius of the circle
 
         All location/size parameters Can be pixels, percent, or any of the supported units
         (see `Units Documentation <https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage>`_

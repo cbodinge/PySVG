@@ -4,6 +4,7 @@ from ..Draw import Rect
 
 
 class Paragraph(Section):
+    # todo: add documentation
     def __init__(self, text: Text, w: float, h: float, x: float = 0, y: float = 0):
         super().__init__(x, y, w, h)
 
@@ -24,13 +25,7 @@ class Paragraph(Section):
         t = self.text
         t.font[ord('\t')] = t.font[ord(' ')] * self.indention
 
-        lines = t.text.split('\n')
-        result = []
-
-        for line in lines:
-            result += self.sublines(line)
-
-        self.lines = result
+        self.lines = [self.sublines(line) for line in t.text.split('\n')]
 
     def sublines(self, text: str):
         t = self.text
@@ -64,10 +59,9 @@ class Paragraph(Section):
 
         return lines
 
-
     def set(self):
         if self.h == 0:
-            # assign h based on linwidth and number of lines
+            # assign h based on linewidth and number of lines
             self.h = self.linewidth * len(self.lines)
         else:
             # assign linewidth based on h

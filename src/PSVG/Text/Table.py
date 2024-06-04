@@ -1,9 +1,10 @@
 from .Text import Text
 from ..Draw import Rect
-from ..SVG import SVG, Section
+from ..SVG import Section
 
 
 class Table(Section):
+    # todo: add documentation
     def __init__(self, text, data: list[list[str]], w=0, h=0):
         super().__init__(w, h)
         self.boxes = {(i, j): data[i][j] for i in range(len(data)) for j in range(len(data[0]))}

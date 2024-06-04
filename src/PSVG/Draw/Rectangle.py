@@ -3,15 +3,19 @@ from .Base import Base
 
 class Rect(Base):
     """
-    Repressents a rectangle SVG element. Subclass of `Paths.Path`
+    Concrete Implementation of `Draw.Base`
+
+    Represents a rectangle SVG element.
     """
 
     def __init__(self, x=0, y=0, w='100%', h='100%', rx=None, ry=None, **kwargs):
         """
-        :param x: x coordinate of the left, bottom coordinate of the rectangle.
-        :param y: y coordinate of the left, bottom coordinate of the rectangle.
-        :param w: Width of the rectangle.
-        :param h: Height of the rectangle.
+        :param x: x coordinate of the left, bottom coordinate of the rectangle
+        :param y: y coordinate of the left, bottom coordinate of the rectangle
+        :param w: Width of the rectangle
+        :param h: Height of the rectangle
+        :param rx: changes the horizontal rounding of the rectangle edges
+        :param ry: changes the vertical rounding of the rectangle edges
 
         All location/size parameters Can be pixels, percent, or any of the supported units
         (see `Units Documentation <https://developer.mozilla.org/en-US/docs/Web/CSS/length-percentage>`_

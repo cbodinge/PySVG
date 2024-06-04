@@ -4,8 +4,21 @@ from ..Data_Structures import Node
 # noinspection PyBroadException
 class Base(Node):
     """
+    Abstract Class
 
+    Sets the parameters shared by all drawn objects.
+
+    Currently, these are as follows:
+    - fill: an (r, g, b) tuple that sets the fill color of the object
+    - fill_opacity: a float value between 0 and 1 that sets the opacity of the object
+    - stroke: an (r, g, b) tuple that sets the color of the object border
+    - stroke_opacity: a float value between 0 and 1 that sets the opacity of the object border
+    - stroke_width: a float that sets the width of the object border
+    - stroke_dasharray: a list of integers that sets the design of the object border dashes if desired
+
+    Any parameter not set will be absent from the svg definition.
     """
+
     def __init__(self, name, fill=None, fill_opacity=None, stroke=None, stroke_width=None, stroke_opacity=None,
                  stroke_dasharray=None, active=True):
         super().__init__(name)
@@ -30,6 +43,11 @@ class Base(Node):
 
     @staticmethod
     def _color2hex(color: tuple[int, int, int]):
+        """
+        Converts an RGB color tuple to a hex string
+        :param color: (r, g, b) tuple that defines the color
+        :return: hex color string
+        """
         try:
             red, green, blue = [f'{i:0{2}x}' for i in color]
             return f'#{red}{green}{blue}'
@@ -38,6 +56,12 @@ class Base(Node):
 
     @staticmethod
     def _get_string_value(val, var):
+        """
+        returns the appropriate value for the given svg attribute
+        :param val: value of the svg attribute
+        :param var: name of the svg attribute
+        :return: formatted attribute string
+        """
         try:
             if val is not None:
                 val = str(val)
@@ -46,6 +70,9 @@ class Base(Node):
             return None
 
     def _validate(self):
+        """
+        Validates each svg attribute
+        """
         # Fill #########################################################################################################
         if self.fill is not None:
             color = self._color2hex(self.fill)
@@ -99,6 +126,11 @@ class Base(Node):
                 pass
 
     def construct(self, depth):
+        """
+        Constructs the svg definition
+        :param depth: current depth of this node in the svg tree
+        :return: String containing the svg definition for this object
+        """
         if self.active is False:
             return ''
 
@@ -107,6 +139,13 @@ class Base(Node):
         return f'{"   " * depth}<{self.type} {s}/>'
 
     def copy(self, item: 'Base' = None):
+        """
+        Creates a copy of this node either by creating a new object
+        or by adjusting the values of the object referenced by item
+
+        :param item: reference to an existing node
+        :return: a node with the same attributes as this node
+        """
         item = Base('') if item is None else item
 
         item.name = self.name

@@ -2,6 +2,7 @@ from ..Draw.Base import Base
 
 
 class Text(Base):
+    # todo: add documentation
     def __init__(self, font, text='', size=10, x=0, y=0, angle=0, baseline=None, anchor=None, **kwargs):
         super().__init__('text', **kwargs)
         self.text = text

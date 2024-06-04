@@ -4,6 +4,7 @@ from ..SVG import Section
 
 
 class TextBox(Section):
+    # todo: add documentation
     def __init__(self, text: Text, alignment=(1, 1), dL=3, dB=3, dR=3, dT=3, **kwargs):
         super().__init__(**kwargs)
 

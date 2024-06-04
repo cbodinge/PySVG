@@ -1,4 +1,5 @@
 class Edge:
+    # todo: add documentation
     def __init__(self, a_node, z_node, weight=None):
         self.beg = a_node
         self.end = z_node
@@ -6,6 +7,7 @@ class Edge:
 
 
 class Node:
+    # todo: add documentation
     def __init__(self, name, value=None):
         self.name = name
         self.value = value
@@ -34,6 +36,7 @@ class Node:
 
 
 class Graph:
+    # todo: add documentation
     def __init__(self):
         self.nodes = []
         self.fun = lambda x: x

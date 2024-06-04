@@ -6,6 +6,7 @@ from pathlib import Path
 
 
 class Font(dict):
+    # todo: add documentation
     def __init__(self, family: str, weight: str):
         """
         This class is used by Text objects to define the fonts used by those objects.

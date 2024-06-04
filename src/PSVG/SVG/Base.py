@@ -3,6 +3,12 @@ from math import sin, cos, pi
 
 
 class SVG(Node):
+    """
+    Implementation of `Data_Structures.Node`
+
+    Represents an SVG Object which can either be an entire document or just a branch in a larger SVG tree
+    """
+
     def __init__(self, w=0, h=0, xmlns='', active=True):
         super().__init__('svg')
         self.type = 'svg'
