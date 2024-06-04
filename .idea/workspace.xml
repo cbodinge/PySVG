@@ -4,60 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.buildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_circle.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_path.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/elements_rectangle.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/environment.pickle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/index.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_elements.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_gradient.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_paths.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/svg_svg.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/.doctrees/usage.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_circle.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_path.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/elements_rectangle.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/index.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_elements.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_gradient.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_paths.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/svg_svg.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_sources/usage.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/_sphinx_javascript_frameworks_compat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/basic.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/doctools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/documentation_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/file.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/functions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/jquery-3.6.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/language_data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/searchtools.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/underscore-1.13.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/_static/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/elements_circle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/elements_path.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/elements_rectangle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/genindex.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/objects.inv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/search.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/svg_elements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/svg_gradient.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/svg_paths.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/svg_svg.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/html/usage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/make.bat" afterDir="false" />
+    <list default="true" id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="adjust documentation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_static/alabaster.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_static/functions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_templates/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_circle.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_path.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_rectangle.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/doc/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/doc/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_elements.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_gradient.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_paths.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_svg.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/doctrees/usage.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/.buildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_circle.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_path.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_rectangle.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_elements.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_gradient.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_paths.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_svg.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_sources/usage.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/_sphinx_javascript_frameworks_compat.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/_sphinx_javascript_frameworks_compat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/alabaster.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/doctools.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/doctools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/documentation_options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/functions.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/jquery-3.6.0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/language_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/language_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/pygments.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/pygments.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/searchtools.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/searchtools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/underscore-1.13.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/_static/underscore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/elements_circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/elements_path.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/elements_rectangle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/svg_elements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/svg_gradient.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/svg_paths.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/svg_svg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/html/usage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements_circle.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements_path.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements_rectangle.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svg_elements.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svg_gradient.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svg_paths.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/svg_svg.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/usage.rst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,21 +100,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/CusPy/PySVG/docs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;restructured.text.topic&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "gh-pages",
+    "last_opened_file_path": "C:/CusPy/PySVG/docs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "restructured.text.topic",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\CusPy\PySVG\docs" />
@@ -112,6 +125,7 @@
   <component name="RunManager">
     <configuration name="Text" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PySVG" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -122,6 +136,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Text/Text.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -205,6 +220,7 @@
     <MESSAGE value="Added Circle, Rect, and Path to Documentation." />
     <MESSAGE value="Updating Details of elements" />
     <MESSAGE value="Updating Details of index.rst" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating Details of index.rst" />
+    <MESSAGE value="adjust documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust documentation" />
   </component>
 </project>

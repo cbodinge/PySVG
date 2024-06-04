@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSVG.SVG package &mdash; PSVG 0.2.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58050c01"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PSVG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PSVG.SVG package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-PSVG.SVG.Base">PSVG.SVG.Base module</a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Document"><code class="docutils literal notranslate"><span class="pre">Document</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Document.copy"><code class="docutils literal notranslate"><span class="pre">Document.copy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.G"><code class="docutils literal notranslate"><span class="pre">G</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.G.construct"><code class="docutils literal notranslate"><span class="pre">G.construct()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.G.copy"><code class="docutils literal notranslate"><span class="pre">G.copy()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.G.header"><code class="docutils literal notranslate"><span class="pre">G.header()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.SVG"><code class="docutils literal notranslate"><span class="pre">SVG</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.SVG.construct"><code class="docutils literal notranslate"><span class="pre">SVG.construct()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.SVG.copy"><code class="docutils literal notranslate"><span class="pre">SVG.copy()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section"><code class="docutils literal notranslate"><span class="pre">Section</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.addChild"><code class="docutils literal notranslate"><span class="pre">Section.addChild()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.copy"><code class="docutils literal notranslate"><span class="pre">Section.copy()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.h"><code class="docutils literal notranslate"><span class="pre">Section.h</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.w"><code class="docutils literal notranslate"><span class="pre">Section.w</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.x"><code class="docutils literal notranslate"><span class="pre">Section.x</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.xywh"><code class="docutils literal notranslate"><span class="pre">Section.xywh</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Section.y"><code class="docutils literal notranslate"><span class="pre">Section.y</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Tree"><code class="docutils literal notranslate"><span class="pre">Tree</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Tree.addChild"><code class="docutils literal notranslate"><span class="pre">Tree.addChild()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Tree.addSection"><code class="docutils literal notranslate"><span class="pre">Tree.addSection()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.SVG.Base.Tree.construct"><code class="docutils literal notranslate"><span class="pre">Tree.construct()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.SVG">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSVG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PSVG.SVG package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PSVG.SVG.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psvg-svg-package">
+<h1>PSVG.SVG package<a class="headerlink" href="#psvg-svg-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-PSVG.SVG.Base">
+<span id="psvg-svg-base-module"></span><h2>PSVG.SVG.Base module<a class="headerlink" href="#module-PSVG.SVG.Base" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Document">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.SVG.Base.</span></span><span class="sig-name descname"><span class="pre">Document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Document" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#PSVG.SVG.Base.Tree" title="PSVG.SVG.Base.Tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tree</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Document.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Document.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.G">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.SVG.Base.</span></span><span class="sig-name descname"><span class="pre">G</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.G" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.G.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.G.construct" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.G.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.G.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.G.header">
+<span class="sig-name descname"><span class="pre">header</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.G.header" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.SVG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.SVG.Base.</span></span><span class="sig-name descname"><span class="pre">SVG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmlns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.SVG" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></p>
+<p>Implementation of <cite>Data_Structures.Node</cite></p>
+<p>Represents an SVG Object which can either be an entire document or just a branch in a larger SVG tree</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.SVG.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.SVG.construct" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.SVG.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.SVG.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.SVG.Base.</span></span><span class="sig-name descname"><span class="pre">Section</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Section" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#PSVG.SVG.Base.Tree" title="PSVG.SVG.Base.Tree"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tree</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.addChild">
+<span class="sig-name descname"><span class="pre">addChild</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Section.addChild" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Section.copy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.h">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#PSVG.SVG.Base.Section.h" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.w">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#PSVG.SVG.Base.Section.w" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#PSVG.SVG.Base.Section.x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.xywh">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xywh</span></span><a class="headerlink" href="#PSVG.SVG.Base.Section.xywh" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Section.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#PSVG.SVG.Base.Section.y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Tree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.SVG.Base.</span></span><span class="sig-name descname"><span class="pre">Tree</span></span><a class="headerlink" href="#PSVG.SVG.Base.Tree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Graph" title="PSVG.Data_Structures.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Tree.addChild">
+<span class="sig-name descname"><span class="pre">addChild</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Tree.addChild" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Tree.addSection">
+<span class="sig-name descname"><span class="pre">addSection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.SVG.Base.Tree" title="PSVG.SVG.Base.Tree"><span class="pre">Tree</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Tree.addSection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.SVG.Base.Tree.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.SVG.Base.Tree.construct" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.SVG">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PSVG.SVG" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carter Bodinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
