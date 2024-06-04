@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSVG.Draw package &mdash; PSVG 0.2.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58050c01"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PSVG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PSVG.Draw package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-PSVG.Draw.Base">PSVG.Draw.Base module</a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Base.Base.construct"><code class="docutils literal notranslate"><span class="pre">Base.construct()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Draw.Base.Base.copy"><code class="docutils literal notranslate"><span class="pre">Base.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Draw.Circle">PSVG.Draw.Circle module</a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Circle.Circle.copy"><code class="docutils literal notranslate"><span class="pre">Circle.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Draw.Path">PSVG.Draw.Path module</a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Path.Path"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Path.Path.copy"><code class="docutils literal notranslate"><span class="pre">Path.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Draw.Rectangle">PSVG.Draw.Rectangle module</a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Rectangle.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Draw.Rectangle.Rect.copy"><code class="docutils literal notranslate"><span class="pre">Rect.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Draw">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSVG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PSVG.Draw package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PSVG.Draw.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psvg-draw-package">
+<h1>PSVG.Draw package<a class="headerlink" href="#psvg-draw-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-PSVG.Draw.Base">
+<span id="psvg-draw-base-module"></span><h2>PSVG.Draw.Base module<a class="headerlink" href="#module-PSVG.Draw.Base" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Draw.Base.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Draw.Base.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_opacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke_opacity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke_dasharray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Base.Base" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.html#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a></p>
+<p>Abstract Class</p>
+<p>Sets the parameters shared by all drawn objects.</p>
+<p>Currently, these are as follows:
+- fill: an (r, g, b) tuple that sets the fill color of the object
+- fill_opacity: a float value between 0 and 1 that sets the opacity of the object
+- stroke: an (r, g, b) tuple that sets the color of the object border
+- stroke_opacity: a float value between 0 and 1 that sets the opacity of the object border
+- stroke_width: a float that sets the width of the object border
+- stroke_dasharray: a list of integers that sets the design of the object border dashes if desired</p>
+<p>Any parameter not set will be absent from the svg definition.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Draw.Base.Base.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Base.Base.construct" title="Link to this definition"></a></dt>
+<dd><p>Constructs the svg definition
+:param depth: current depth of this node in the svg tree
+:return: String containing the svg definition for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Draw.Base.Base.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Draw.Base.Base" title="PSVG.Draw.Base.Base"><span class="pre">Base</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Base.Base.copy" title="Link to this definition"></a></dt>
+<dd><p>Creates a copy of this node either by creating a new object
+or by adjusting the values of the object referenced by item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – reference to an existing node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a node with the same attributes as this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Draw.Circle">
+<span id="psvg-draw-circle-module"></span><h2>PSVG.Draw.Circle module<a class="headerlink" href="#module-PSVG.Draw.Circle" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Draw.Circle.Circle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Draw.Circle.</span></span><span class="sig-name descname"><span class="pre">Circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Circle.Circle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#PSVG.Draw.Base.Base" title="PSVG.Draw.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Draw.Circle.Circle.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Draw.Circle.Circle" title="PSVG.Draw.Circle.Circle"><span class="pre">Circle</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Circle.Circle.copy" title="Link to this definition"></a></dt>
+<dd><p>Creates a copy of this node either by creating a new object
+or by adjusting the values of the object referenced by item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – reference to an existing node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a node with the same attributes as this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Draw.Path">
+<span id="psvg-draw-path-module"></span><h2>PSVG.Draw.Path module<a class="headerlink" href="#module-PSVG.Draw.Path" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Draw.Path.Path">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Draw.Path.</span></span><span class="sig-name descname"><span class="pre">Path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Path.Path" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#PSVG.Draw.Base.Base" title="PSVG.Draw.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Concrete Implementation of <cite>Draw.Base</cite></p>
+<p>Represents a generic version of the path element of an SVG.</p>
+<p>Path elements are used to draw curves and shapes
+freely based on defined curve behavior and coordinates on which to draw.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Draw.Path.Path.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Draw.Path.Path" title="PSVG.Draw.Path.Path"><span class="pre">Path</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Path.Path.copy" title="Link to this definition"></a></dt>
+<dd><p>Creates a copy of this node either by creating a new object
+or by adjusting the values of the object referenced by item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – reference to an existing node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a node with the same attributes as this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Draw.Rectangle">
+<span id="psvg-draw-rectangle-module"></span><h2>PSVG.Draw.Rectangle module<a class="headerlink" href="#module-PSVG.Draw.Rectangle" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Draw.Rectangle.Rect">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Draw.Rectangle.</span></span><span class="sig-name descname"><span class="pre">Rect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'100%'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'100%'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Rectangle.Rect" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#PSVG.Draw.Base.Base" title="PSVG.Draw.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Concrete Implementation of <cite>Draw.Base</cite></p>
+<p>Represents a rectangle SVG element.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Draw.Rectangle.Rect.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Draw.Rectangle.Rect" title="PSVG.Draw.Rectangle.Rect"><span class="pre">Rect</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Draw.Rectangle.Rect.copy" title="Link to this definition"></a></dt>
+<dd><p>Creates a copy of this node either by creating a new object
+or by adjusting the values of the object referenced by item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – reference to an existing node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a node with the same attributes as this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Draw">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PSVG.Draw" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carter Bodinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

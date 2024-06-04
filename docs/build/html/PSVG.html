@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSVG package &mdash; PSVG 0.2.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58050c01"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PSVG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PSVG package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-PSVG.Data_Structures">PSVG.Data_Structures module</a><ul>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Graph.directed"><code class="docutils literal notranslate"><span class="pre">Graph.directed()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Graph.print"><code class="docutils literal notranslate"><span class="pre">Graph.print()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Node.add_child"><code class="docutils literal notranslate"><span class="pre">Node.add_child()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Node.add_parent"><code class="docutils literal notranslate"><span class="pre">Node.add_parent()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Node.in_deg"><code class="docutils literal notranslate"><span class="pre">Node.in_deg</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Data_Structures.Node.out_deg"><code class="docutils literal notranslate"><span class="pre">Node.out_deg</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSVG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PSVG package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PSVG.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psvg-package">
+<h1>PSVG package<a class="headerlink" href="#psvg-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="PSVG.Draw.html">PSVG.Draw package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#module-PSVG.Draw.Base">PSVG.Draw.Base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Base.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Base.Base.construct"><code class="docutils literal notranslate"><span class="pre">Base.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Base.Base.copy"><code class="docutils literal notranslate"><span class="pre">Base.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#module-PSVG.Draw.Circle">PSVG.Draw.Circle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Circle.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Circle.Circle.copy"><code class="docutils literal notranslate"><span class="pre">Circle.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#module-PSVG.Draw.Path">PSVG.Draw.Path module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Path.Path"><code class="docutils literal notranslate"><span class="pre">Path</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Path.Path.copy"><code class="docutils literal notranslate"><span class="pre">Path.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#module-PSVG.Draw.Rectangle">PSVG.Draw.Rectangle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Rectangle.Rect"><code class="docutils literal notranslate"><span class="pre">Rect</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Rectangle.Rect.copy"><code class="docutils literal notranslate"><span class="pre">Rect.copy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Draw.html#module-PSVG.Draw">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PSVG.SVG.html">PSVG.SVG package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.SVG.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.SVG.html#module-PSVG.SVG.Base">PSVG.SVG.Base module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Document"><code class="docutils literal notranslate"><span class="pre">Document</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Document.copy"><code class="docutils literal notranslate"><span class="pre">Document.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.G"><code class="docutils literal notranslate"><span class="pre">G</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.G.construct"><code class="docutils literal notranslate"><span class="pre">G.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.G.copy"><code class="docutils literal notranslate"><span class="pre">G.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.G.header"><code class="docutils literal notranslate"><span class="pre">G.header()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.SVG"><code class="docutils literal notranslate"><span class="pre">SVG</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.SVG.construct"><code class="docutils literal notranslate"><span class="pre">SVG.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.SVG.copy"><code class="docutils literal notranslate"><span class="pre">SVG.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section"><code class="docutils literal notranslate"><span class="pre">Section</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.addChild"><code class="docutils literal notranslate"><span class="pre">Section.addChild()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.copy"><code class="docutils literal notranslate"><span class="pre">Section.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.h"><code class="docutils literal notranslate"><span class="pre">Section.h</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.w"><code class="docutils literal notranslate"><span class="pre">Section.w</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.x"><code class="docutils literal notranslate"><span class="pre">Section.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.xywh"><code class="docutils literal notranslate"><span class="pre">Section.xywh</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section.y"><code class="docutils literal notranslate"><span class="pre">Section.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Tree"><code class="docutils literal notranslate"><span class="pre">Tree</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Tree.addChild"><code class="docutils literal notranslate"><span class="pre">Tree.addChild()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Tree.addSection"><code class="docutils literal notranslate"><span class="pre">Tree.addSection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Tree.construct"><code class="docutils literal notranslate"><span class="pre">Tree.construct()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.SVG.html#module-PSVG.SVG">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PSVG.Text.html">PSVG.Text package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text.Font">PSVG.Text.Font module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Font.Font"><code class="docutils literal notranslate"><span class="pre">Font</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Font.Font.getBase64"><code class="docutils literal notranslate"><span class="pre">Font.getBase64()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text.Paragraph">PSVG.Text.Paragraph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Paragraph.Paragraph"><code class="docutils literal notranslate"><span class="pre">Paragraph</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Paragraph.Paragraph.set"><code class="docutils literal notranslate"><span class="pre">Paragraph.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Paragraph.Paragraph.sublines"><code class="docutils literal notranslate"><span class="pre">Paragraph.sublines()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text.Table">PSVG.Text.Table module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table"><code class="docutils literal notranslate"><span class="pre">Table</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.add_box"><code class="docutils literal notranslate"><span class="pre">Table.add_box()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.c_rng"><code class="docutils literal notranslate"><span class="pre">Table.c_rng</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.even_col_width"><code class="docutils literal notranslate"><span class="pre">Table.even_col_width()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.even_row_height"><code class="docutils literal notranslate"><span class="pre">Table.even_row_height()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.r_rng"><code class="docutils literal notranslate"><span class="pre">Table.r_rng</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set"><code class="docutils literal notranslate"><span class="pre">Table.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_box_color"><code class="docutils literal notranslate"><span class="pre">Table.set_box_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_box_text"><code class="docutils literal notranslate"><span class="pre">Table.set_box_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_col_color"><code class="docutils literal notranslate"><span class="pre">Table.set_col_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_col_text"><code class="docutils literal notranslate"><span class="pre">Table.set_col_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_col_width"><code class="docutils literal notranslate"><span class="pre">Table.set_col_width()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_rect_color"><code class="docutils literal notranslate"><span class="pre">Table.set_rect_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_row_color"><code class="docutils literal notranslate"><span class="pre">Table.set_row_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_row_height"><code class="docutils literal notranslate"><span class="pre">Table.set_row_height()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_row_text"><code class="docutils literal notranslate"><span class="pre">Table.set_row_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.set_sizes"><code class="docutils literal notranslate"><span class="pre">Table.set_sizes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.weighted_col_width"><code class="docutils literal notranslate"><span class="pre">Table.weighted_col_width()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.Table.weighted_row_width"><code class="docutils literal notranslate"><span class="pre">Table.weighted_row_width()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox"><code class="docutils literal notranslate"><span class="pre">TextBox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox.center"><code class="docutils literal notranslate"><span class="pre">TextBox.center()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox.left"><code class="docutils literal notranslate"><span class="pre">TextBox.left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox.middle"><code class="docutils literal notranslate"><span class="pre">TextBox.middle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox.right"><code class="docutils literal notranslate"><span class="pre">TextBox.right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Table.TextBox.set"><code class="docutils literal notranslate"><span class="pre">TextBox.set()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text.Text">PSVG.Text.Text module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Text.Text.construct"><code class="docutils literal notranslate"><span class="pre">Text.construct()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Text.Text.copy"><code class="docutils literal notranslate"><span class="pre">Text.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.Text.Text.width"><code class="docutils literal notranslate"><span class="pre">Text.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text.TextBox">PSVG.Text.TextBox module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox"><code class="docutils literal notranslate"><span class="pre">TextBox</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.fill"><code class="docutils literal notranslate"><span class="pre">TextBox.fill</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.fill_opacity"><code class="docutils literal notranslate"><span class="pre">TextBox.fill_opacity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.set"><code class="docutils literal notranslate"><span class="pre">TextBox.set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.size"><code class="docutils literal notranslate"><span class="pre">TextBox.size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.stroke"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.stroke_opacity"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke_opacity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.stroke_width"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke_width</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.text"><code class="docutils literal notranslate"><span class="pre">TextBox.text</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.textColor"><code class="docutils literal notranslate"><span class="pre">TextBox.textColor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="PSVG.Text.html#PSVG.Text.TextBox.TextBox.textOpacity"><code class="docutils literal notranslate"><span class="pre">TextBox.textOpacity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="PSVG.Text.html#module-PSVG.Text">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-PSVG.Data_Structures">
+<span id="psvg-data-structures-module"></span><h2>PSVG.Data_Structures module<a class="headerlink" href="#module-PSVG.Data_Structures" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Edge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Data_Structures.</span></span><span class="sig-name descname"><span class="pre">Edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Edge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Graph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Data_Structures.</span></span><span class="sig-name descname"><span class="pre">Graph</span></span><a class="headerlink" href="#PSVG.Data_Structures.Graph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Graph.directed">
+<span class="sig-name descname"><span class="pre">directed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Graph.directed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Graph.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Graph.print" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Data_Structures.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Node" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Node.add_child">
+<span class="sig-name descname"><span class="pre">add_child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Node.add_child" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Node.add_parent">
+<span class="sig-name descname"><span class="pre">add_parent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Data_Structures.Node" title="PSVG.Data_Structures.Node"><span class="pre">Node</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Data_Structures.Node.add_parent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Node.in_deg">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">in_deg</span></span><a class="headerlink" href="#PSVG.Data_Structures.Node.in_deg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Data_Structures.Node.out_deg">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">out_deg</span></span><a class="headerlink" href="#PSVG.Data_Structures.Node.out_deg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PSVG" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carter Bodinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

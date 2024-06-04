@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSVG.Text package &mdash; PSVG 0.2.7 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=58050c01"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PSVG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">PSVG.Text package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-PSVG.Text.Font">PSVG.Text.Font module</a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Font.Font"><code class="docutils literal notranslate"><span class="pre">Font</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Font.Font.getBase64"><code class="docutils literal notranslate"><span class="pre">Font.getBase64()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Text.Paragraph">PSVG.Text.Paragraph module</a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Paragraph.Paragraph"><code class="docutils literal notranslate"><span class="pre">Paragraph</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Paragraph.Paragraph.set"><code class="docutils literal notranslate"><span class="pre">Paragraph.set()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Paragraph.Paragraph.sublines"><code class="docutils literal notranslate"><span class="pre">Paragraph.sublines()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Text.Table">PSVG.Text.Table module</a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table"><code class="docutils literal notranslate"><span class="pre">Table</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.add_box"><code class="docutils literal notranslate"><span class="pre">Table.add_box()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.c_rng"><code class="docutils literal notranslate"><span class="pre">Table.c_rng</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.even_col_width"><code class="docutils literal notranslate"><span class="pre">Table.even_col_width()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.even_row_height"><code class="docutils literal notranslate"><span class="pre">Table.even_row_height()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.r_rng"><code class="docutils literal notranslate"><span class="pre">Table.r_rng</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set"><code class="docutils literal notranslate"><span class="pre">Table.set()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_box_color"><code class="docutils literal notranslate"><span class="pre">Table.set_box_color()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_box_text"><code class="docutils literal notranslate"><span class="pre">Table.set_box_text()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_col_color"><code class="docutils literal notranslate"><span class="pre">Table.set_col_color()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_col_text"><code class="docutils literal notranslate"><span class="pre">Table.set_col_text()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_col_width"><code class="docutils literal notranslate"><span class="pre">Table.set_col_width()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_rect_color"><code class="docutils literal notranslate"><span class="pre">Table.set_rect_color()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_row_color"><code class="docutils literal notranslate"><span class="pre">Table.set_row_color()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_row_height"><code class="docutils literal notranslate"><span class="pre">Table.set_row_height()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_row_text"><code class="docutils literal notranslate"><span class="pre">Table.set_row_text()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.set_sizes"><code class="docutils literal notranslate"><span class="pre">Table.set_sizes()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.weighted_col_width"><code class="docutils literal notranslate"><span class="pre">Table.weighted_col_width()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.Table.weighted_row_width"><code class="docutils literal notranslate"><span class="pre">Table.weighted_row_width()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox"><code class="docutils literal notranslate"><span class="pre">TextBox</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox.center"><code class="docutils literal notranslate"><span class="pre">TextBox.center()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox.left"><code class="docutils literal notranslate"><span class="pre">TextBox.left()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox.middle"><code class="docutils literal notranslate"><span class="pre">TextBox.middle()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox.right"><code class="docutils literal notranslate"><span class="pre">TextBox.right()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Table.TextBox.set"><code class="docutils literal notranslate"><span class="pre">TextBox.set()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Text.Text">PSVG.Text.Text module</a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Text.Text"><code class="docutils literal notranslate"><span class="pre">Text</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.Text.Text.construct"><code class="docutils literal notranslate"><span class="pre">Text.construct()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Text.Text.copy"><code class="docutils literal notranslate"><span class="pre">Text.copy()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.Text.Text.width"><code class="docutils literal notranslate"><span class="pre">Text.width</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Text.TextBox">PSVG.Text.TextBox module</a><ul>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox"><code class="docutils literal notranslate"><span class="pre">TextBox</span></code></a><ul>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.fill"><code class="docutils literal notranslate"><span class="pre">TextBox.fill</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.fill_opacity"><code class="docutils literal notranslate"><span class="pre">TextBox.fill_opacity</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.set"><code class="docutils literal notranslate"><span class="pre">TextBox.set()</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.size"><code class="docutils literal notranslate"><span class="pre">TextBox.size</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.stroke"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.stroke_opacity"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke_opacity</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.stroke_width"><code class="docutils literal notranslate"><span class="pre">TextBox.stroke_width</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.text"><code class="docutils literal notranslate"><span class="pre">TextBox.text</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.textColor"><code class="docutils literal notranslate"><span class="pre">TextBox.textColor</span></code></a></li>
+<li><a class="reference internal" href="#PSVG.Text.TextBox.TextBox.textOpacity"><code class="docutils literal notranslate"><span class="pre">TextBox.textOpacity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-PSVG.Text">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PSVG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PSVG.Text package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PSVG.Text.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="psvg-text-package">
+<h1>PSVG.Text package<a class="headerlink" href="#psvg-text-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-PSVG.Text.Font">
+<span id="psvg-text-font-module"></span><h2>PSVG.Text.Font module<a class="headerlink" href="#module-PSVG.Text.Font" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.Font.Font">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.Font.</span></span><span class="sig-name descname"><span class="pre">Font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Font.Font" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Font.Font.getBase64">
+<span class="sig-name descname"><span class="pre">getBase64</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Font.Font.getBase64" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Text.Paragraph">
+<span id="psvg-text-paragraph-module"></span><h2>PSVG.Text.Paragraph module<a class="headerlink" href="#module-PSVG.Text.Paragraph" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.Paragraph.Paragraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.Paragraph.</span></span><span class="sig-name descname"><span class="pre">Paragraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Paragraph.Paragraph" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section" title="PSVG.SVG.Base.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">Section</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Paragraph.Paragraph.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Paragraph.Paragraph.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Paragraph.Paragraph.sublines">
+<span class="sig-name descname"><span class="pre">sublines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Paragraph.Paragraph.sublines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Text.Table">
+<span id="psvg-text-table-module"></span><h2>PSVG.Text.Table module<a class="headerlink" href="#module-PSVG.Text.Table" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.Table.</span></span><span class="sig-name descname"><span class="pre">Table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section" title="PSVG.SVG.Base.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">Section</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.add_box">
+<span class="sig-name descname"><span class="pre">add_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.add_box" title="Link to this definition"></a></dt>
+<dd><p>Adds a text box to the table at the intersection of row and column.
+If something exists there already this will overwrite it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> – Integer represent the row to put the box in</p></li>
+<li><p><strong>col</strong> – Integer representing the column to but the box in</p></li>
+<li><p><strong>value</strong> – The text value of the text box</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.c_rng">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">c_rng</span></span><a class="headerlink" href="#PSVG.Text.Table.Table.c_rng" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.even_col_width">
+<span class="sig-name descname"><span class="pre">even_col_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.even_col_width" title="Link to this definition"></a></dt>
+<dd><p>Given the desired width, computes the column width for each column
+assuming all columns will have the same column width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_w</strong> – number representing the desired width of the table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.even_row_height">
+<span class="sig-name descname"><span class="pre">even_row_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.even_row_height" title="Link to this definition"></a></dt>
+<dd><p>Given the desired height, computes the row height for each row assuming all rows will have the same row height.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>total_h</strong> – number representing the desired height of the table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.r_rng">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">r_rng</span></span><a class="headerlink" href="#PSVG.Text.Table.Table.r_rng" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_box_color">
+<span class="sig-name descname"><span class="pre">set_box_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_box_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_box_text">
+<span class="sig-name descname"><span class="pre">set_box_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_box_text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_col_color">
+<span class="sig-name descname"><span class="pre">set_col_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_col_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_col_text">
+<span class="sig-name descname"><span class="pre">set_col_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_col_text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_col_width">
+<span class="sig-name descname"><span class="pre">set_col_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_col_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_rect_color">
+<span class="sig-name descname"><span class="pre">set_rect_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Rectangle.Rect" title="PSVG.Draw.Rectangle.Rect"><span class="pre">Rect</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_rect_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_row_color">
+<span class="sig-name descname"><span class="pre">set_row_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_row_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_row_height">
+<span class="sig-name descname"><span class="pre">set_row_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_row_height" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_row_text">
+<span class="sig-name descname"><span class="pre">set_row_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_row_text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.set_sizes">
+<span class="sig-name descname"><span class="pre">set_sizes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.set_sizes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.weighted_col_width">
+<span class="sig-name descname"><span class="pre">weighted_col_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.weighted_col_width" title="Link to this definition"></a></dt>
+<dd><p>Given the desired width and weights, computes the column width for each column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_w</strong> – number representing the desired width of the table</p></li>
+<li><p><strong>weights</strong> – list of percentages that define column widths</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.Table.weighted_row_width">
+<span class="sig-name descname"><span class="pre">weighted_row_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total_h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.Table.weighted_row_width" title="Link to this definition"></a></dt>
+<dd><p>Given the desired height and weights, computes the row height for each row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>total_h</strong> – number representing the desired height of the table</p></li>
+<li><p><strong>weights</strong> – list of percentages that define row heights</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.Table.</span></span><span class="sig-name descname"><span class="pre">TextBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section" title="PSVG.SVG.Base.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">Section</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox.center" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox.left">
+<span class="sig-name descname"><span class="pre">left</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox.left" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox.middle">
+<span class="sig-name descname"><span class="pre">middle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox.middle" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox.right">
+<span class="sig-name descname"><span class="pre">right</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox.right" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Table.TextBox.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Table.TextBox.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Text.Text">
+<span id="psvg-text-text-module"></span><h2>PSVG.Text.Text module<a class="headerlink" href="#module-PSVG.Text.Text" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.Text.Text">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.Text.</span></span><span class="sig-name descname"><span class="pre">Text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">font</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anchor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Text.Text" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.Draw.html#PSVG.Draw.Base.Base" title="PSVG.Draw.Base.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Text.Text.construct">
+<span class="sig-name descname"><span class="pre">construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Text.Text.construct" title="Link to this definition"></a></dt>
+<dd><p>Constructs the svg definition
+:param depth: current depth of this node in the svg tree
+:return: String containing the svg definition for this object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.Text.Text.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.Text.Text.copy" title="Link to this definition"></a></dt>
+<dd><p>Creates a copy of this node either by creating a new object
+or by adjusting the values of the object referenced by item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – reference to an existing node</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a node with the same attributes as this node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.Text.Text.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#PSVG.Text.Text.Text.width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Text.TextBox">
+<span id="psvg-text-textbox-module"></span><h2>PSVG.Text.TextBox module<a class="headerlink" href="#module-PSVG.Text.TextBox" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSVG.Text.TextBox.</span></span><span class="sig-name descname"><span class="pre">TextBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSVG.Text.Text.Text" title="PSVG.Text.Text.Text"><span class="pre">Text</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">alignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="PSVG.SVG.html#PSVG.SVG.Base.Section" title="PSVG.SVG.Base.Section"><code class="xref py py-class docutils literal notranslate"><span class="pre">Section</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.fill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fill</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.fill" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.fill_opacity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fill_opacity</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.fill_opacity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.set" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">size</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.size" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.stroke">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stroke</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.stroke" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.stroke_opacity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stroke_opacity</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.stroke_opacity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.stroke_width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stroke_width</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.stroke_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.text">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.textColor">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">textColor</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.textColor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="PSVG.Text.TextBox.TextBox.textOpacity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">textOpacity</span></span><a class="headerlink" href="#PSVG.Text.TextBox.TextBox.textOpacity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-PSVG.Text">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PSVG.Text" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Carter Bodinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
