@@ -4,72 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="adjust documentation">
+    <list default="true" id="853794d6-f0d2-4d3c-b1ce-df1910910846" name="Changes" comment="updating documentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_static/functions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_templates/layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_circle.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_path.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/elements_rectangle.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/doc/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/doc/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_elements.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_gradient.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_paths.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/svg_svg.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/doctrees/usage.doctree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/.nojekyll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_circle.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_path.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/elements_rectangle.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_sources/index.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_elements.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_gradient.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_paths.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/svg_svg.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_sources/usage.rst.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/_sphinx_javascript_frameworks_compat.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/_sphinx_javascript_frameworks_compat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/alabaster.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/basic.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/doctools.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/doctools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/documentation_options.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/documentation_options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/functions.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/jquery-3.6.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/language_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/language_data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/pygments.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/pygments.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/searchtools.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/_static/searchtools.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/underscore-1.13.1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/_static/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/elements_circle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/elements_path.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/elements_rectangle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/html/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/svg_elements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/svg_gradient.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/svg_paths.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/svg_svg.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/html/usage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elements_circle.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elements_path.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/elements_rectangle.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg_elements.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg_gradient.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg_paths.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/svg_svg.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usage.rst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,9 +28,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "cbodinge"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/cbodinge/PySVG.git",
+    "accountId": "c252861a-ad69-4c9f-b7bf-42c703d5e6d9"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2DlGR0Kgc7NNUHyPKyRA8KoD12l" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -112,6 +63,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "restructured.text.topic",
     "vue.rearranger.settings.migration": "true"
   }
@@ -147,6 +99,14 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -161,6 +121,7 @@
       <workItem from="1661531635393" duration="47000" />
       <workItem from="1661551470283" duration="740000" />
       <workItem from="1661553163144" duration="29000" />
+      <workItem from="1717467431068" duration="385000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1661285169121</created>
@@ -197,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1661977346938</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updating documentation">
+      <option name="closed" value="true" />
+      <created>1717467550787</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717467550787</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +190,7 @@
     <MESSAGE value="Updating Details of elements" />
     <MESSAGE value="Updating Details of index.rst" />
     <MESSAGE value="adjust documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust documentation" />
+    <MESSAGE value="updating documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating documentation" />
   </component>
 </project>
