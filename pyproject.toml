@@ -1,19 +1,8 @@
 [project]
-name = "PSVG"
-version = "0.2.7"
-authors = [
-    { name = "Carter Bodinger", email = "carterallenbodinger@yahoo.com" },
+name = "psvg"
+version = "0.2.8"
+description = "Python Classes for programatically constructing SVGs"
+requires-python = ">=3.10"
+dependencies = [
+    "fonttools>=4.61.1",
 ]
-description = "Python interface for generating SVGs."
-readme = "README.md"
-license = { file="LICENSE" }
-requires-python = ">=3.7"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
-    "Operating System :: OS Independent",
-]
-
-[project.urls]
-"Homepage" = "https://github.com/cbodinge/PySVG"
-"Bug Tracker" = "https://github.com/cbodinge/PySVG/issues"

@@ -1,7 +1,5 @@
 from fontTools.ttLib import TTFont
 from base64 import b64encode
-import inspect
-import os
 from pathlib import Path
 
 
@@ -19,7 +17,7 @@ class Font(dict):
         """
 
         file = weight + '.ttf'
-        path = Path(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
+        path = Path(__file__).resolve().parent
         path = path / 'fonts' / family / file
         self.path = path
         font = TTFont(path)
